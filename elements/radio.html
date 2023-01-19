@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+      }
+
+      .markkeu {
+        height: 100px;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      /* ignore  above */
+      .rf-wrapper {
+        display: grid;
+        place-content: center;
+      }
+
+      .radio-form {
+        font-family: system-ui, sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 28px;
+        display: grid;
+        /* gap between circle and text*/
+        grid-template-columns: 35px auto;
+        color: #4b101f;
+        gap: 1px;
+        /* to REDUCE the size WITHOUT messing with the arrangement, use the radio-form+radio-form's margin-top and scale*/
+        transform: scale(1);
+      }
+
+      .radio-form + .radio-form {
+        /* Margin BETWEEN items*/
+        margin-top: 10px;
+      }
+
+      .radio-input {
+        /* Add if not using autoprefixer */
+        -webkit-appearance: none;
+        /* Remove most all native input styles */
+        appearance: none;
+        /* For iOS < 15 */
+        background-color: transparent;
+        /* Not removed via appearance */
+        margin: 0;
+        /* circle */
+        font: inherit;
+        color: currentColor;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #b2b2b2;
+        border-radius: 50%;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        display: grid;
+        place-content: center;
+      }
+
+      .radio-input:hover {
+        box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      /*checkmark*/
+      .radio-input::before {
+        content: "";
+        width: 13.33px;
+        height: 13.33px;
+        border-radius: 50%;
+        /*keep circle hidden*/
+        transform: scale(0);
+        transition: 1ms transform ease-in-out;
+        box-shadow: inset #4b101f;
+        background-color: #4b101f;
+      }
+
+      .radio-input:checked::before {
+        transform: scale(1);
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Custom radio buttons</h2>
+    <div class="markkeu"></div>
+    <form class="rf-wrapper" action="">
+      <label class="radio-form">
+        <input type="radio" name="radio" class="radio-input" />
+        Radio
+      </label>
+      <label class="radio-form">
+        <input type="radio" name="radio" class="radio-input" checked />
+        Radio - Checked
+      </label>
+      <label class="radio-form">
+        <input type="radio" name="radio" class="radio-input" />
+        Radio - Hover
+      </label>
+    </form>
+  </body>
+</html>

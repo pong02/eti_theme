@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .borderless-input {
+        width: 356px;
+        height: 45px;
+        position: relative;
+        display: flex;
+        border: 1px solid #4b0f1e;
+        border-color: transparent transparent #4b0f1e transparent;
+      }
+
+      .borderless-input #tf-trail-button:after {
+        content: url("information-outline.svg");
+      }
+
+      .tf-error #tf-trail-button:after {
+        content: url("x-circle.svg");
+      }
+
+      .borderless-input input {
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        outline: none;
+        height: 100%;
+        border: 0px solid #4b0f1e;
+      }
+
+      /*borderless input*/
+      .tf-error {
+        border: 1px solid #be1218;
+        border-color: transparent transparent #be1218 transparent;
+      }
+
+      .borderless-error p {
+        display: none;
+      }
+
+      .borderless-error p.show {
+        display: inline;
+        color: #be1218;
+      }
+
+      .tf-btn {
+        z-index: 1;
+        border: none;
+        height: 100%;
+        cursor: pointer;
+        color: white;
+        background-color: inherit;
+      }
+
+      /* css for floating label (we will treat it as the entire textfield)*/
+      .tf-wrap {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
+
+      .tf-wrap .inputText {
+        width: 100%;
+        height: 25px;
+        font-size: 16px;
+        font-weight: 400;
+        padding-left: 10px;
+        outline: none;
+        border: transparent;
+        box-shadow: none !important;
+      }
+
+      .tf-wrap .floating-label {
+        position: absolute;
+        height: 17px;
+        font-size: 16px;
+        font-weight: 400;
+        pointer-events: none;
+        top: 18px;
+        left: 10px;
+        transition: 0.2s ease all;
+        color: #848789;
+      }
+
+      .tf-wrap input:focus ~ .floating-label,
+      .tf-wrap input:not([value=""]) ~ .floating-label {
+        top: 0px;
+        left: 10px;
+        font-size: 10px;
+        font-weight: 400;
+        opacity: 1;
+      }
+
+      /* When error and focused */
+      .tf-error input:focus ~ .floating-label,
+      .tf-error input:not([value=""]) ~ .floating-label {
+        color: #be1218;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Custom textfields</h2>
+    <div class="borderless-input" id="text-borderless">
+      <div class="tf-wrap">
+        <br />
+        <input
+          type="text"
+          value=""
+          class="inputText"
+          id="tf-enter"
+          onkeyup="this.setAttribute('value', this.value);"
+        />
+        <span class="floating-label">Your email address</span>
+      </div>
+      <button class="tf-btn" id="tf-trail-button"></button>
+    </div>
+    <div class="borderless-error"><p id="errorMsg">error</p></div>
+
+    <script>
+      window.addEventListener("load", () => {
+        button = document.getElementById("tf-trail-button");
+        button.addEventListener("click", () => {
+          console.log("clicked trailing button 2");
+          txtbox = document.getElementById("text-borderless");
+          text = document.getElementById("tf-enter");
+          error = document.getElementById("errorMsg");
+          if (text.value != "etisalat") {
+            console.log(text);
+            txtbox.classList.add("tf-error");
+            error.classList.add("show");
+          } else {
+            txtbox.classList.remove("tf-error");
+            error.classList.remove("show");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

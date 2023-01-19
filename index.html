@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css">
+    <!-- Import css for icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <nav class="noticeBanner banner-info" id="noticeBanner">
+    <div class="navbar navbar-expand">
+      <div class="container-fluid">
+        <div class="alert-content titled" id="alert-content">
+          <span class="alert-icon">
+              <!-- We will include all items to make it load faster -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="error" viewBox="0 0 24 24"><path d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" /></svg>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="info" viewBox="0 0 24 24"><path d="M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="success" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" /></svg>
+          </span>
+          <div class="alert-message">
+              <h6 style="margin-bottom: 0" class="alert-title" id="alert-title">
+                This is a title!
+              </h6>
+              <h6 style="margin-bottom: 0" class="alert-description">
+              Our Online Portal will be taken offline on 30-Jan-2023 from
+              00:00hrs to 02:00hrs (UAE time +4 GMT) due to a scheduled
+              maintenance.
+              </h6>
+              <h6 style="margin-bottom: 0" class="alert-action" id="alert-action" onclick="console.log('action invoked')">
+              Click me!
+              </h6>
+          </div>
+          <button
+            type="button"
+            id="alert-close"
+            class="close closeX alert-button"
+            onclick="closeNoticeBanner()"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <body>
+    <div class="fakeBody">
+      <p>Click the buttons to show the banner again</p>
+    </div>
+    <div>
+      <h2>Alert panel</h2>
+      <h3>Change alert banner types</h3>
+      <button onclick="summonAlert('success')">Success</button>
+      <button onclick="summonAlert('error')">Error</button>
+      <button onclick="summonAlert('info')">Info</button>
+      
+      <h3>Change alert banner content</h3>
+      <button onclick="toggleBannerElem('alert-title')">Title</button>
+      <button onclick="toggleBannerElem('alert-action')">InlineAction</button>
+      <button onclick="toggleBannerElem('alert-close')">CloseAction</button>
+    </div>
+    <h2> Datepicker</h2>
+    <div class="dp-wrapper">
+      <label for="datepicker">
+        <div class="datepicker-box">
+          <input
+            type="text"
+            id="datepicker"
+            autocomplete="off"
+            placeholder="Select date"
+          />
+          <i class="fa fa-calendar datepicker-icon"></i>
+        </div>
+      </label>
+    </div>
+    <h2>TextBox</h2>
+    <div class="bordered-input" id="text-border">
+      <!-- <input type="text" id="tb-enter" placeholder="tb-enter your domain here" /> -->
+      <div class="tb-wrap">
+        <br />
+        <input
+          type="text"
+          value=""
+          class="inputText"
+          id="tb-enter"
+          onkeyup="this.setAttribute('value', this.value);"
+        />
+        <span class="floating-label">Your email address</span>
+      </div>
+      <button class="tb-btn" id="tb-trail-button"></button>
+    </div>
+    <h2>TextField</h2>
+    <div class="borderless-input" id="text-borderless">
+      <div class="tf-wrap">
+        <br />
+        <input
+          type="text"
+          value=""
+          class="inputText"
+          id="tf-enter"
+          onkeyup="this.setAttribute('value', this.value);"
+        />
+        <span class="floating-label">Your email address</span>
+      </div>
+      <button class="tf-btn" id="tf-trail-button"></button>
+    </div>
+    <div class="borderless-error"><p id="errorMsg">error</p></div>
+    <h2>Select</h2>
+    <div class="custom-select" style="width: 200px">
+      <select>
+        <option value="0">Select car:</option>
+        <option value="1">Audi</option>
+        <option value="2">BMW</option>
+        <option value="3">Citroen</option>
+        <option value="4">Ford</option>
+        <option value="5">Honda</option>
+        <option value="6">Jaguar</option>
+        <option value="7">Land Rover</option>
+        <option value="8">Mercedes</option>
+        <option value="9">Mini</option>
+        <option value="10">Nissan</option>
+        <option value="11">Toyota</option>
+        <option value="12">Volvo</option>
+      </select>
+    </div>
+    <h2>Checkbox</h2>
+    <div>
+      <label class="cb-wrapper"
+        >Caramel
+        <input type="checkbox" checked="checked" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="cb-wrapper"
+        >Chocolate
+        <input type="checkbox" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="cb-wrapper"
+        >Vanilla
+        <input type="checkbox" />
+        <span class="checkmark"></span>
+      </label>
+      <label class="cb-wrapper"
+        >Pistachio
+        <input type="checkbox" />
+        <span class="checkmark"></span>
+      </label>
+    </div>
+    <h2>Radio</h2>
+    <div>
+      <form class="rf-wrapper" action="">
+        <label class="radio-form">
+          <input type="radio" name="radio" class="radio-input" />
+          Radio
+        </label>
+        <label class="radio-form">
+          <input type="radio" name="radio" class="radio-input" checked />
+          Radio - Checked
+        </label>
+        <label class="radio-form">
+          <input type="radio" name="radio" class="radio-input" />
+          Radio - Hover
+        </label>
+      </form>
+    </div>
+    <h2>Toggle</h2>
+    <div>
+    <h3>normal</h3>
+    <label class="switch">
+      <input type="checkbox" />
+      <span class="slider round"></span>
+    </label>
+    <label class="switch">
+      <input type="checkbox" checked />
+      <span class="slider round"></span>
+    </label>
+
+    <h3>Locked</h3>
+    <label class="switch locked">
+      <input type="checkbox" />
+      <span class="slider round"></span>
+    </label>
+    <label class="switch locked">
+      <input type="checkbox" checked />
+      <span class="slider round"></span>
+    </label>
+    </div>
+    <h2>a random paragraph!</h2>
+    <div class="ignoreThis">
+      placeholder div to force the page to scroll so that we can see the alert moving with us asdjoasidk sadad
+    </div>
+    <h2>NOTHIGN ELSE TO SEE HERE</h2>
+    <div class="theend">
+      <span>⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣤⡶⠶⠿⠿⠶⢶⣤⣄⠀⠀⠀⠀⢀⣀⣠⣤⣤⣤⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⣾⠟⠉⠀⠀⠀⠀⠀⠀⠀⠈⠛⢿⣦⣶⠿⠛⠉⠉⠁⠀⠈⠙⠻⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡿⠋⠀⠀⠀⣀⣠⣤⣤⣤⣤⣤⣤⣀⡀⠹⣧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢿⡄⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡿⠁⠀⠀⣶⡿⠛⠉⠀⠀⠀⠀⠀⠈⠉⠻⢷⣿⣧⣶⣶⠶⠿⠿⠿⠿⠷⣶⣾⣷⣄⡀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⡿⠀⠀⠀⠀⠁⠀⠀⠀⠀⢀⣠⣤⣶⠶⢾⣿⣿⡿⠿⣶⣄⠀⠀⢴⡶⠶⡶⣷⣾⢿⠿⠿⠷⣦⣄⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⣀⣴⡟⠀⠀⠀⠀⠀⠀⣀⣤⣶⠾⣻⣭⣷⠾⠛⠛⠋⠛⠛⠛⠻⢿⣷⣤⣶⣷⠶⠿⡛⣛⢛⠛⠛⠿⣶⣿⡆⠀
+        ⠀⠀⠀⠀⠀⢀⣴⡾⠛⠁⠀⠀⠀⠀⠀⢠⣴⣿⣭⡶⠟⠋⠉⠀⣀⣠⣤⣶⣶⠾⠿⠛⠻⢿⣧⣤⣴⡶⠿⢿⣿⣿⣿⣟⠛⠷⠿⣿⡆
+        ⠀⠀⠀⠀⠀⣼⠟⠀⠀⠀⠀⠀⠀⠀⠀⠙⠷⠾⣷⣶⣶⡶⠾⠛⢻⣿⣏⣻⡿⠻⣦⡀⢀⣼⠏⠁⠀⠀⢠⣿⣧⣼⠛⣿⣷⠀⢀⣼⡇
+        ⠀⠀⠀⢀⣾⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⣯⣛⡷⣦⣤⣾⣿⣯⣽⣷⣴⣿⡷⣟⣿⠷⠶⣶⣤⣾⣿⣦⣿⣶⣿⣿⣿⣿⠏⠀
+        ⠀⠀⣠⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠛⠻⠶⠿⠿⠿⠷⢾⣿⣿⠟⠋⠁⣤⡀⠀⠀⠀⠀⠀⠀⢀⣠⣼⠟⠀⠀⠀
+        ⠀⢠⡿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣠⣤⡶⠿⠋⠁⠀⠀⠀⠛⠻⢶⣶⡶⠶⠶⠿⣿⡏⠁⠀⠀⠀⠀
+        ⢠⣿⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠛⠉⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⠿⠀⠀⠀⠈⢿⣦⠀⠀⠀⠀
+        ⢸⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⣧⠀⠀⠀
+        ⠸⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⣶⠶⡿⠛⠛⠻⠿⠶⢶⣦⣤⣤⣀⣀⡀⠀⠀⠀⠀⠀⣀⣀⣀⣀⣤⣤⣶⠶⠟⠻⣧⠀⠀
+        ⠀⢻⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢼⡟⠀⠰⡶⢶⣶⣶⣤⣤⣤⣀⣀⠉⠙⠛⠛⠛⠛⠛⠛⠛⠛⠛⠛⠉⠉⠀⠀⢀⣀⣴⡟⠀⠀
+        ⠀⠈⢿⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠘⢿⣤⣀⣥⣤⣴⣦⣤⣬⣉⣉⣛⠛⠛⠿⠷⠶⠶⠶⠶⠶⠶⠶⠶⠶⠾⠟⠛⢻⣿⠁⠀⠀⠀
+        ⠀⠀⠈⠻⣧⣄⠀⠀⠀⠀⠀⠀⠀⠻⣷⣤⣉⡉⠁⠀⠀⠀⠀⠈⠉⠛⠛⠻⠿⠿⠶⢶⣶⣶⣶⣦⣤⣤⣤⣄⣠⣤⣴⡾⠋⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠘⢿⣷⣦⣤⣀⡀⠀⠀⠀⠀⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣈⣽⠟⠋⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠉⠛⠿⣿⣿⣿⡷⣶⣦⣤⣄⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣠⣤⣴⣶⡾⠿⠋⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠙⠛⠷⠾⢯⣭⣭⣭⣭⣉⣉⣉⣉⣉⣉⣉⣩⣭⣽⡿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠉⠉⠉⠉⠉⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+      </span>
+      <p><a href="#top"> go back </a></p>
+    </div>
+    <!-- import jquery for calendar-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Script for datepicker -->
+    <script>
+      // JQUERY script
+      $(function () {
+        $("#datepicker").datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: "dd-mm-yy",
+          duration: "fast",
+          showOtherMonths: true,
+          dayNamesMin: ["SUN", "Mon", "Tue", "Wed", "Thu", "Fri", "SAT"],
+        });
+      });
+    </script>
+    <script>
+      // Scripts for alert
+      function summonAlert(str) {
+        banner = document.getElementById("noticeBanner");
+        if (window.sessionStorage) {
+          window.sessionStorage.setItem("noticeBannerClosed", false);
+          banner.style.display = "inline";
+        }
+        // set the class of alert we want
+        // WARNING: THIS FUNCTION ASSUMES THE CLASS IS THE LAST ELEM!
+        // bcz add WILL ADD into the last index. 
+        bannerType = "banner-"+str
+        oldBannerType = banner.classList[banner.classList.length-1]
+        console.log(oldBannerType)
+        banner.classList.remove(oldBannerType);
+        banner.classList.add(bannerType);
+      }
+
+      function closeNoticeBanner() {
+        var banner = document.getElementById("noticeBanner");
+        if (banner !== undefined && banner !== null) {
+          banner.style.display = "none";
+          if (window.sessionStorage) {
+            window.sessionStorage.setItem("noticeBannerClosed", true);
+          }
+        }
+      }
+
+      function toggleBannerElem(elemId){
+        bannerElem = document.getElementById(elemId);
+        classTag = bannerElem.classList[bannerElem.classList.length-1]
+        // if off exists, remove it
+        if (classTag==="off"){
+          bannerElem.classList.remove("off");
+        }
+        else{
+          bannerElem.classList.add("off");
+        }
+        if(elemId==="alert-title"){
+          bannerContent = document.getElementById("alert-content");
+          if (classTag==="off"){
+            bannerContent.classList.add("titled");
+            bannerContent.classList.remove("untitled");
+          }
+          else{
+            bannerContent.classList.add("untitled");
+            bannerContent.classList.remove("titled");
+          }
+        }
+      }
+
+      function renderBanner(){
+        if (
+        window.sessionStorage &&
+        !window.sessionStorage.getItem("noticeBannerClosed")
+        ) {
+        var now = new Date();
+        var validDate = new Date(2023, 0, 30, 2);
+        if (now.getTime() < validDate) {
+          var banner = document.getElementById("noticeBanner");
+          if (banner !== undefined && banner !== null) {
+            banner.removeAttribute("style");
+          }
+        }
+        }
+      }
+      // render banner on load
+      renderBanner()
+    </script>
+    <!-- Script for textbox & textfield-->
+    <script>
+      window.addEventListener("load", () => {
+        button = document.getElementById("tb-trail-button");
+        button.addEventListener("click", () => {
+          console.log("clicked trailing button 1");
+          txtbox = document.getElementById("text-border");
+          text = document.getElementById("tb-enter");
+          if (text.value != "etisalat") {
+            console.log(text);
+            txtbox.classList.add("tb-error");
+          } else {
+            txtbox.classList.remove("tb-error");
+          }
+        });
+      });
+
+      // script for textfield
+      window.addEventListener("load", () => {
+        button = document.getElementById("tf-trail-button");
+        button.addEventListener("click", () => {
+          console.log("clicked trailing button 2");
+          txtbox = document.getElementById("text-borderless");
+          text = document.getElementById("tf-enter");
+          error = document.getElementById("errorMsg");
+          if (text.value != "etisalat") {
+            console.log(text);
+            txtbox.classList.add("tf-error");
+            error.classList.add("show");
+          } else {
+            txtbox.classList.remove("tf-error");
+            error.classList.remove("show");
+          }
+        });
+      });      
+    </script>
+    <!-- Script for drop down table -->
+    <script>
+      var x, i, j, l, ll, selElmnt, a, b, c;
+      /*look for any elements with the class "custom-select":*/
+      x = document.getElementsByClassName("custom-select");
+      l = x.length;
+      for (i = 0; i < l; i++) {
+        selElmnt = x[i].getElementsByTagName("select")[0];
+        ll = selElmnt.length;
+        /*for each element, create a new DIV that will act as the selected item:*/
+        a = document.createElement("DIV");
+        a.setAttribute("class", "select-selected");
+        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        x[i].appendChild(a);
+        /*for each element, create a new DIV that will contain the option list:*/
+        b = document.createElement("DIV");
+        b.setAttribute("class", "select-items select-hide");
+        for (j = 1; j < ll; j++) {
+          /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+          c = document.createElement("DIV");
+          c.innerHTML = selElmnt.options[j].innerHTML;
+          c.addEventListener("click", function (e) {
+            /*when an item is clicked, update the original select box,
+        and the selected item:*/
+            var y, i, k, s, h, sl, yl;
+            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+            sl = s.length;
+            h = this.parentNode.previousSibling;
+            for (i = 0; i < sl; i++) {
+              if (s.options[i].innerHTML == this.innerHTML) {
+                s.selectedIndex = i;
+                h.innerHTML = this.innerHTML;
+                y = this.parentNode.getElementsByClassName("same-as-selected");
+                yl = y.length;
+                for (k = 0; k < yl; k++) {
+                  y[k].removeAttribute("class");
+                }
+                this.setAttribute("class", "same-as-selected");
+                break;
+              }
+            }
+            h.click();
+          });
+          b.appendChild(c);
+        }
+        x[i].appendChild(b);
+        a.addEventListener("click", function (e) {
+          /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+          e.stopPropagation();
+          closeAllSelect(this);
+          this.nextSibling.classList.toggle("select-hide");
+          this.classList.toggle("select-arrow-active");
+        });
+      }
+      function closeAllSelect(elmnt) {
+        /*a function that will close all select boxes in the document,
+  except the current select box:*/
+        var x,
+          y,
+          i,
+          xl,
+          yl,
+          arrNo = [];
+        x = document.getElementsByClassName("select-items");
+        y = document.getElementsByClassName("select-selected");
+        xl = x.length;
+        yl = y.length;
+        for (i = 0; i < yl; i++) {
+          if (elmnt == y[i]) {
+            arrNo.push(i);
+          } else {
+            y[i].classList.remove("select-arrow-active");
+          }
+        }
+        for (i = 0; i < xl; i++) {
+          if (arrNo.indexOf(i)) {
+            x[i].classList.add("select-hide");
+          }
+        }
+      }
+      /*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+      document.addEventListener("click", closeAllSelect);
+    </script>
+    <script>
+    </script>
+  </body>
+</html>

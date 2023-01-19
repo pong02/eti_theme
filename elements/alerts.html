@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: 0;
+        padding:0; 
+        font-size:100%; 
+        line-height:1; 
+        box-sizing :border-box;
+      }
+      /* RESET, can ignore */
+
+      .noticeBanner .navbar {
+        border: none;
+        width: 100%;
+        height: auto;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+        position: fixed;
+        z-index: 1000;
+        -webkit-transition-duration: 500ms;
+        transition-duration: 500ms;
+        border-radius: 4px;
+        padding-top: 5px;
+        /* can move down further, this is the minimum we need to see the curved corner */
+      }
+
+      /* New classes for new notice banner */
+      .alert-content {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
+      
+      .titled {
+        padding-top: 22px;
+        padding-bottom: 27px;
+      }
+
+      .untitled {
+        padding-top: 12px;
+        padding-bottom: 17px;
+      }
+
+      .alert-content h6 {
+        font-size: 16px;
+        display: block;
+        color: #232323;
+      }
+
+      .alert-button {
+        /* flex ratio to force the space to remain the same */
+        flex: 1;
+      }
+
+      .alert-message {
+        padding-right: 5px;
+        flex: 50;
+      }
+
+      .alert-message .alert-title {
+        font-weight: 600;
+      }
+
+      .alert-message .alert-description {
+        font-weight: 400;
+        display: inline;
+      }
+
+      .alert-message .alert-action {
+        font-weight: 600;
+        display: inline;
+        cursor: pointer;
+      }
+
+      .alert-icon {
+        padding-left: 10px;
+        padding-right: 20px;
+        flex: 1;
+      }
+
+      /* change icons using tag */
+      /* default icon is hidden, only matching tag names will be shown */
+      .alert-icon svg {
+        display: none;
+        width: 21px;
+        height: 21px;
+      }
+
+      .banner-success .alert-icon svg.success {
+        display: block;
+      }
+
+      .banner-error .alert-icon svg.error {
+        display: block;
+      }
+
+      .banner-info .alert-icon svg.info {
+        display: block;
+      }
+
+      /* similarly change color using tag */
+
+      .banner-success .navbar {
+        background-color: #ebebe3;
+      }
+
+      .banner-error .navbar {
+        background-color: #dbcfd2;
+      }
+
+      .banner-info .navbar {
+        background-color: #f7eeda;
+      }
+
+      .closeX {
+        /* background: url(../images/generic/close.png) no-repeat; */
+        /* personally i think the x character is good enough as URL imports WILL cost some time. but u can add if u prefer a nicer x */
+        width: auto;
+        height: auto;
+        cursor: pointer;
+        border: 0px transparent;
+        background-color: transparent;
+      }
+
+      .off {
+        display: none !important;
+        /* Doesnt matter, we want it to force override anyway */
+      }
+
+      /* ignore these */
+      .ignoreThis {
+        width: 1px;
+        height: 1000px;
+      }
+
+      .ignore2 {
+        width: 100%;
+      }
+
+      .fakeBody{
+        padding-top: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav class="noticeBanner banner-info" id="noticeBanner">
+      <div class="navbar navbar-expand">
+        <div class="container-fluid">
+          <div class="alert-content titled" id="alert-content">
+            <span class="alert-icon">
+                <!-- We will include all items to make it load faster -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="error" viewBox="0 0 24 24"><path d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" /></svg>
+                </svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="info" viewBox="0 0 24 24"><path d="M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" class="success" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" /></svg>
+            </span>
+            <div class="alert-message">
+                <h6 style="margin-bottom: 0" class="alert-title" id="alert-title">
+                  This is a title!
+                </h6>
+                <h6 style="margin-bottom: 0" class="alert-description">
+                Our Online Portal will be taken offline on 30-Jan-2023 from
+                00:00hrs to 02:00hrs (UAE time +4 GMT) due to a scheduled
+                maintenance.
+                </h6>
+                <h6 style="margin-bottom: 0" class="alert-action" id="alert-action" onclick="console.log('action invoked')">
+                Click me!
+                </h6>
+            </div>
+            <button
+              type="button"
+              id="alert-close"
+              class="close closeX alert-button"
+              onclick="closeNoticeBanner()"
+            >
+              ×
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div class="fakeBody">
+      <h2>Change alert banner types</h2>
+      <button onclick="summonAlert('success')">Success</button>
+      <button onclick="summonAlert('error')">Error</button>
+      <button onclick="summonAlert('info')">Info</button>
+      <p></p>
+      <h2>Change alert banner content</h2>
+      <button onclick="toggleBannerElem('alert-title')">Title</button>
+      <button onclick="toggleBannerElem('alert-action')">InlineAction</button>
+      <button onclick="toggleBannerElem('alert-close')">CloseAction</button>
+      <p>
+        The above buttons demonstrate that this banner is made such that it is possible to programatically change its outlook.
+      </p>
+      <div class="ignoreThis">
+        placeholder div to force the page to scroll so that we can see the alert moving with us asdjoasidk
+      </div>
+    </div>
+    <script>
+      function summonAlert(str) {
+        banner = document.getElementById("noticeBanner");
+        if (window.sessionStorage) {
+          window.sessionStorage.setItem("noticeBannerClosed", false);
+          banner.style.display = "inline";
+        }
+        // set the class of alert we want
+        // WARNING: THIS FUNCTION ASSUMES THE CLASS IS THE LAST ELEM!
+        // bcz add WILL ADD into the last index. 
+        bannerType = "banner-"+str
+        oldBannerType = banner.classList[banner.classList.length-1]
+        console.log(oldBannerType)
+        banner.classList.remove(oldBannerType);
+        banner.classList.add(bannerType);
+      }
+
+      function closeNoticeBanner() {
+        var banner = document.getElementById("noticeBanner");
+        if (banner !== undefined && banner !== null) {
+          banner.style.display = "none";
+          if (window.sessionStorage) {
+            window.sessionStorage.setItem("noticeBannerClosed", true);
+          }
+        }
+      }
+
+      function toggleBannerElem(elemId){
+        bannerElem = document.getElementById(elemId);
+        classTag = bannerElem.classList[bannerElem.classList.length-1]
+        // if off exists, remove it
+        if (classTag==="off"){
+          bannerElem.classList.remove("off");
+        }
+        else{
+          bannerElem.classList.add("off");
+        }
+        if(elemId==="alert-title"){
+          bannerContent = document.getElementById("alert-content");
+          if (classTag==="off"){
+            bannerContent.classList.add("titled");
+            bannerContent.classList.remove("untitled");
+          }
+          else{
+            bannerContent.classList.add("untitled");
+            bannerContent.classList.remove("titled");
+          }
+        }
+      }
+
+      function renderBanner(){
+        if (
+        window.sessionStorage &&
+        !window.sessionStorage.getItem("noticeBannerClosed")
+        ) {
+        var now = new Date();
+        var validDate = new Date(2023, 0, 30, 2);
+        if (now.getTime() < validDate) {
+          var banner = document.getElementById("noticeBanner");
+          if (banner !== undefined && banner !== null) {
+            banner.removeAttribute("style");
+          }
+        }
+        }
+      }
+    </script>
+    <script>
+      // to render banner on load
+      window.addEventListener("load", () => {renderBanner()})
+    </script>
+  </body>
+</html>

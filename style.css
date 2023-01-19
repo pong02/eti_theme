@@ -1,0 +1,877 @@
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  line-height: 1;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+/* RESET all css rules set before starting */
+
+/* 
+* =====================
+* +   ALERT BANNER    +
+* =====================
+*/
+
+.noticeBanner .navbar {
+  border: none;
+  width: 100%;
+  height: auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  position: fixed;
+  /* force ignore body padding */
+  left: 0px;
+  z-index: 1000;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+  border-radius: 4px;
+  padding-top: 5px;
+  /* can move down further, this is the minimum we need to see the curved corner */
+}
+
+/* New classes for new notice banner */
+.alert-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.titled {
+  padding-top: 22px;
+  padding-bottom: 27px;
+}
+
+.untitled {
+  padding-top: 12px;
+  padding-bottom: 17px;
+}
+
+.alert-content h6 {
+  font-size: 16px;
+  display: block;
+  color: #232323;
+}
+
+.alert-button {
+  /* flex ratio to force the space to remain the same */
+  flex: 1;
+}
+
+.alert-message {
+  padding-right: 5px;
+  flex: 50;
+}
+
+.alert-message .alert-title {
+  font-weight: 600;
+}
+
+.alert-message .alert-description {
+  font-weight: 400;
+  display: inline;
+}
+
+.alert-message .alert-action {
+  font-weight: 600;
+  display: inline;
+  cursor: pointer;
+}
+
+.alert-icon {
+  padding-left: 10px;
+  padding-right: 20px;
+  flex: 1;
+}
+
+/* change icons using tag */
+/* default icon is hidden, only matching tag names will be shown */
+.alert-icon svg {
+  display: none;
+  width: 21px;
+  height: 21px;
+}
+
+.banner-success .alert-icon svg.success {
+  display: block;
+}
+
+.banner-error .alert-icon svg.error {
+  display: block;
+}
+
+.banner-info .alert-icon svg.info {
+  display: block;
+}
+
+/* similarly change color using tag */
+
+.banner-success .navbar {
+  background-color: #ebebe3;
+}
+
+.banner-error .navbar {
+  background-color: #dbcfd2;
+}
+
+.banner-info .navbar {
+  background-color: #f7eeda;
+}
+
+.closeX {
+  /* background: url(../images/generic/close.png) no-repeat; */
+  /* personally i think the x character is good enough as URL imports WILL cost some time. but u can add if u prefer a nicer x */
+  width: auto;
+  height: auto;
+  cursor: pointer;
+  border: 0px transparent;
+  background-color: transparent;
+}
+
+.off {
+  display: none !important;
+  /* Doesnt matter, we want it to force override anyway */
+}
+
+/* 
+* =====================
+* +      TEXTBOX      +
+* =====================
+*/
+
+.bordered-input {
+  width: 356px;
+  height: 65px;
+  position: relative;
+  display: flex;
+  border: 1px solid #4b0f1e;
+}
+
+.bordered-input #tb-trail-button:after {
+  content: url("information-outline.svg");
+  padding-right: 10px;
+}
+
+.tb-error #tb-trail-button:after {
+  content: url("x-circle.svg");
+}
+
+.bordered-input input {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  outline: none;
+  height: 100%;
+  border: 0px solid #4b0f1e;
+}
+
+.tb-error {
+  border: 1px solid #be1218;
+}
+
+.tb-btn {
+  z-index: 1;
+  border: none;
+  height: 100%;
+  cursor: pointer;
+  color: white;
+  background-color: inherit;
+}
+
+/* css for floating label (we will treat it as the entire textfield)*/
+.tb-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.tb-wrap .inputText {
+  width: 100%;
+  height: 25px;
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 10px;
+  padding-top: 10px;
+  outline: none;
+  border: transparent;
+  box-shadow: none !important;
+  color: #000000;
+}
+
+.tb-wrap .floating-label {
+  position: absolute;
+  height: 17px;
+  font-size: 16px;
+  font-weight: 400;
+  pointer-events: none;
+  top: 20px;
+  left: 10px;
+  transition: 0.2s ease all;
+  color: #848789;
+}
+
+.tb-wrap input:focus ~ .floating-label,
+.tb-wrap input:not([value=""]) ~ .floating-label {
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 1;
+  color: #848789;
+}
+
+/* When error and focused */
+.tb-error input:focus ~ .floating-label,
+.tb-error input:not([value=""]) ~ .floating-label {
+  color: #be1218;
+}
+
+/* 
+* =====================
+* +     TEXTFIELD     +
+* =====================
+*/
+
+.borderless-input {
+  width: 356px;
+  height: 45px;
+  position: relative;
+  display: flex;
+  border: 1px solid #4b0f1e;
+  border-color: transparent transparent #4b0f1e transparent;
+}
+
+.borderless-input #tf-trail-button:after {
+  content: url("information-outline.svg");
+  padding-right: 10px;
+}
+
+.tf-error #tf-trail-button:after {
+  content: url("x-circle.svg");
+}
+
+.borderless-input input {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  outline: none;
+  height: 100%;
+  border: 0px solid #4b0f1e;
+}
+
+/*borderless input*/
+.tf-error {
+  border: 1px solid #be1218;
+  border-color: transparent transparent #be1218 transparent;
+}
+
+.borderless-error p {
+  display: none;
+}
+
+.borderless-error p.show {
+  display: inline;
+  color: #be1218;
+}
+
+.tf-btn {
+  z-index: 1;
+  border: none;
+  height: 100%;
+  cursor: pointer;
+  color: white;
+  background-color: inherit;
+}
+
+/* css for floating label (we will treat it as the entire textfield)*/
+.tf-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.tf-wrap .inputText {
+  width: 100%;
+  height: 25px;
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 10px;
+  outline: none;
+  border: transparent;
+  box-shadow: none !important;
+}
+
+.tf-wrap .floating-label {
+  position: absolute;
+  height: 17px;
+  font-size: 16px;
+  font-weight: 400;
+  pointer-events: none;
+  top: 18px;
+  left: 10px;
+  transition: 0.2s ease all;
+  color: #848789;
+}
+
+.tf-wrap input:focus ~ .floating-label,
+.tf-wrap input:not([value=""]) ~ .floating-label {
+  top: 0px;
+  left: 10px;
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 1;
+}
+
+/* When error and focused */
+.tf-error input:focus ~ .floating-label,
+.tf-error input:not([value=""]) ~ .floating-label {
+  color: #be1218;
+}
+
+/* 
+* =====================
+* +     DATEPICKER    +
+* =====================
+*/
+
+.dp-wrapper {
+  max-width: 464px;
+}
+.dp-wrapper label {
+  font-size: 20px;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #848789;
+  border: 2px solid transparent;
+  border-color: transparent transparent #d1d2d1 transparent;
+}
+.dp-wrapper input {
+  display: block;
+  border: none;
+  border-radius: 0;
+  border: 1px solid transparent;
+  line-height: 28px;
+  padding: 0;
+  font-size: 20px;
+  /* hack to disable the blinking cursor, while keeping the text color using shadow */
+  color: transparent;
+  text-shadow: 0 0 0 #848789;
+  width: 100%;
+}
+.dp-wrapper input:focus {
+  outline: none;
+}
+#ui-datepicker-div {
+  display: none;
+  background-color: #fff;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+  margin-top: 0.25rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+.dp-wrapper table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.ui-datepicker-calendar thead th {
+  padding: 0.25rem 0;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.ui-datepicker-unselectable .ui-state-default {
+  color: #d1d2d1;
+}
+
+.ui-datepicker-calendar tbody td {
+  width: 60px;
+  height: 40px;
+  border-radius: 0px;
+  border: 1px solid hsl(0, 0%, 100%);
+  line-height: 24px;
+  transition: 0.3s all;
+}
+
+.ui-datepicker-calendar tbody td a {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: #f5f5f1;
+}
+
+.ui-datepicker-calendar tbody td span {
+  width: inherit;
+  height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #d1d2d1;
+  font-size: 16px;
+  text-decoration: none;
+  background-color: #ffffff;
+}
+
+.ui-datepicker-calendar tbody td a.ui-state-active {
+  background-color: #4b0f1e;
+  color: white;
+}
+.ui-datepicker-header a.ui-corner-all {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  width: 2rem;
+  height: 2rem;
+  margin: 0.5rem;
+  border-radius: 0;
+  transition: 0.3s all;
+}
+.ui-datepicker-header a.ui-corner-all:hover {
+  background-color: #eceff1;
+}
+.ui-datepicker-header a.ui-datepicker-prev {
+  left: 0;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==");
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: 50%;
+  transform: scale(2) rotate(180deg);
+}
+.ui-datepicker-header a.ui-datepicker-next {
+  right: 0;
+  background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==");
+  background-repeat: no-repeat;
+  background-size: 10px;
+  background-position: 50%;
+  transform: scale(2);
+}
+.ui-datepicker-header a > span {
+  display: none;
+}
+.ui-datepicker-title {
+  text-align: center;
+  line-height: 2rem;
+  margin-bottom: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding-bottom: 0.25rem;
+}
+.ui-datepicker-week-col {
+  color: #78909c;
+  font-weight: 400;
+  font-size: 0.75rem;
+}
+
+.ui-datepicker-week-end a.ui-state-default {
+  background-color: #ede7e9;
+}
+
+.ui-datepicker-week-end span {
+  color: #848789;
+}
+
+/* SELECT (WITHIN DATE PICKER) */
+.ui-datepicker-month {
+  width: 120px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 2px solid transparent;
+  border-color: transparent transparent #d1d2d1 transparent;
+}
+
+.ui-datepicker-year {
+  width: 120px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 2px solid transparent;
+  border-color: transparent transparent #d1d2d1 transparent;
+}
+
+/* THINGS OUTSIDE THE DATEPICKER */
+.datepicker-box {
+  flex-direction: row;
+  display: flex;
+}
+
+.datepicker-icon {
+  padding: 10px;
+  color: #4b0f1e;
+  min-width: 50px;
+  text-align: center;
+  margin-left: auto;
+}
+
+/* 
+* =====================
+* +       SELECT      +
+* =====================
+*/
+
+.custom-select {
+  position: relative;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: solid #4b0f1e;
+  border-width: 0 1.5px 1.5px 0;
+  display: inline-block;
+  padding: 4.8px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border: solid #4b0f1e;
+  top: 14px;
+  border-width: 0 1.5px 1.5px 0;
+  display: inline-block;
+  padding: 4.8px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+  color: #848789;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-color: transparent transparent #f1f1eb transparent;
+  cursor: pointer;
+  user-select: none;
+  background-color: #ffffff;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #ffffff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover {
+  /*background-color: rgba(0, 0, 0, 0.9);*/
+  color: #e00800;
+  font-weight: 600;
+}
+
+.same-as-selected:after {
+  position: absolute;
+  content: "";
+  padding-top: 5px;
+  /*Only way of importing svg that works*/
+  background-image: url("iconmonstr-check-mark-circle-thin.svg");
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  width: 16px;
+  height: 16px;
+  right: 10px;
+}
+
+/* 
+* =====================
+* +     CHECKBOX      +
+* =====================
+*/
+
+.cb-wrapper {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.cb-wrapper input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* creating the BOX */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 24px;
+  width: 24px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #b2b2b2;
+  box-shadow: 0px 1px 4px 0px rgb(178, 178, 178, 0.5);
+}
+
+/* On mouse-over, make shadow darker */
+.cb-wrapper:hover input ~ .checkmark {
+  box-shadow: 0px 1px 4px 0px rgb(178, 178, 178, 0.9);
+}
+
+.cb-wrapper input:checked ~ .checkmark {
+  background-color: #4b101f;
+}
+
+/* hide the checkmark (default state) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* unhide checkmark */
+.cb-wrapper input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* checkmark */
+.cb-wrapper .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/* 
+* =====================
+* +       RADIO       +
+* =====================
+*/
+
+.rf-wrapper {
+  display: grid;
+}
+
+.radio-form {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  display: grid;
+  /* gap between circle and text*/
+  grid-template-columns: 35px auto;
+  color: #4b101f;
+  gap: 1px;
+  /* to REDUCE the size WITHOUT messing with the arrangement, use the radio-form+radio-form's margin-top and scale*/
+  transform: scale(1);
+}
+
+.radio-form + .radio-form {
+  /* Margin BETWEEN items*/
+  margin-top: 10px;
+}
+
+.radio-input {
+  /* Add if not using autoprefixer */
+  -webkit-appearance: none;
+  /* Remove most all native input styles */
+  appearance: none;
+  /* For iOS < 15 */
+  background-color: transparent;
+  /* Not removed via appearance */
+  margin: 0;
+  /* circle */
+  font: inherit;
+  color: currentColor;
+  width: 32px;
+  height: 32px;
+  border: 1px solid #b2b2b2;
+  border-radius: 50%;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  display: grid;
+  place-content: center;
+}
+
+.radio-input:hover {
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.3);
+}
+
+/*checkmark*/
+.radio-input::before {
+  content: "";
+  width: 13.33px;
+  height: 13.33px;
+  border-radius: 50%;
+  /*keep circle hidden*/
+  transform: scale(0);
+  transition: 1ms transform ease-in-out;
+  box-shadow: inset #4b101f;
+  background-color: #4b101f;
+}
+
+.radio-input:checked::before {
+  transform: scale(1);
+}
+
+/* 
+* =====================
+* +       TOGGLE      +      
+* =====================
+*/
+
+/* to disable click VIA CSS*/
+.locked {
+  pointer-events: none;
+}
+
+/* this is the BAR SHAPE */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 16px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* this is the bar color */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #b2b2b2;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* This is the circle part */
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: -6px;
+  bottom: -4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* locked circle*/
+.locked .slider:before {
+  content: url("lock-outline.svg");
+}
+
+input:checked + .slider {
+  background-color: #4b0f1e;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* ONLY FOR DEMO, IGNORE ALL BELOW*/
+.ignoreThis {
+  width: 1px;
+}
+
+.ignore2 {
+  width: 100%;
+}
+
+.fakeBody {
+  height: 100px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  color: red;
+}
+
+.fakeBody:before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 2500%;
+  top: -250%;
+  left: -50%;
+  z-index: -1;
+  background-color: black;
+  background-image: linear-gradient(90deg, transparent 50%, yellow 50%);
+  background-size: 120px 10000px;
+  background-repeat: repeat;
+  transform: rotate(45deg);
+}
+
+.theend {
+  padding: 20px;
+  color: #fff;
+}
+
+.theend span {
+  cursor: crosshair;
+}
+
+body {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+div + h2 {
+  margin-top: 25px;
+}
+
+h3 {
+  font-weight: 400;
+  text-decoration: underline;
+  padding: 10px 0px;
+}

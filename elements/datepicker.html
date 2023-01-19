@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--Jquery in script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+      $(function () {
+        $("#datepicker").datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: "dd-mm-yy",
+          duration: "fast",
+          showOtherMonths: true,
+          dayNamesMin: ["SUN", "Mon", "Tue", "Wed", "Thu", "Fri", "SAT"],
+        });
+      });
+    </script>
+    <!--CSS in style-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+      }
+      .dp-wrapper {
+        max-width: 18rem;
+        padding: 0 0.5rem;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 4rem;
+      }
+      .dp-wrapper label {
+        font-size: 20px;
+        font-weight: 400;
+        display: block;
+        margin-bottom: 0.5rem;
+        color: #848789;
+        border: 2px solid transparent;
+        border-color: transparent transparent #d1d2d1 transparent;
+      }
+      .dp-wrapper input {
+        display: block;
+        border: none;
+        border-radius: 0;
+        border: 1px solid transparent;
+        line-height: 28px;
+        padding: 0;
+        font-size: 20px;
+        /* hack to disable the blinking cursor, while keeping the text color using shadow */
+        color: transparent;
+        text-shadow: 0 0 0 #848789;
+        width: 100%;
+      }
+      .dp-wrapper input:focus {
+        outline: none;
+      }
+      #ui-datepicker-div {
+        display: none;
+        background-color: #fff;
+        box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+        margin-top: 0.25rem;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+      }
+      .dp-wrapper table {
+        border-collapse: collapse;
+        border-spacing: 0;
+      }
+      .ui-datepicker-calendar thead th {
+        padding: 0.25rem 0;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        color: #000000;
+      }
+
+      .ui-datepicker-unselectable .ui-state-default {
+        color: #d1d2d1;
+      }
+
+      .ui-datepicker-calendar tbody td {
+        width: 60px;
+        height: 40px;
+        border-radius: 0px;
+        border: 1px solid hsl(0, 0%, 100%);
+        line-height: 24px;
+        transition: 0.3s all;
+      }
+
+      .ui-datepicker-calendar tbody td a {
+        width: inherit;
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black;
+        font-size: 16px;
+        text-decoration: none;
+        background-color: #f5f5f1;
+      }
+
+      .ui-datepicker-calendar tbody td span {
+        width: inherit;
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #d1d2d1;
+        font-size: 16px;
+        text-decoration: none;
+        background-color: #ffffff;
+      }
+
+      .ui-datepicker-calendar tbody td a.ui-state-active {
+        background-color: #4b0f1e;
+        color: white;
+      }
+      .ui-datepicker-header a.ui-corner-all {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        width: 2rem;
+        height: 2rem;
+        margin: 0.5rem;
+        border-radius: 0;
+        transition: 0.3s all;
+      }
+      .ui-datepicker-header a.ui-corner-all:hover {
+        background-color: #eceff1;
+      }
+      .ui-datepicker-header a.ui-datepicker-prev {
+        left: 0;
+        background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==");
+        background-repeat: no-repeat;
+        background-size: 10px;
+        background-position: 50%;
+        transform: scale(2) rotate(180deg);
+      }
+      .ui-datepicker-header a.ui-datepicker-next {
+        right: 0;
+        background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMyIgaGVpZ2h0PSIxMyIgdmlld0JveD0iMCAwIDEzIDEzIj48cGF0aCBmaWxsPSIjNDI0NzcwIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjI4OCA2LjI5NkwzLjIwMiAyLjIxYS43MS43MSAwIDAgMSAuMDA3LS45OTljLjI4LS4yOC43MjUtLjI4Ljk5OS0uMDA3TDguODAzIDUuOGEuNjk1LjY5NSAwIDAgMSAuMjAyLjQ5Ni42OTUuNjk1IDAgMCAxLS4yMDIuNDk3bC00LjU5NSA0LjU5NWEuNzA0LjcwNCAwIDAgMS0xLS4wMDcuNzEuNzEgMCAwIDEtLjAwNi0uOTk5bDQuMDg2LTQuMDg2eiIvPjwvc3ZnPg==");
+        background-repeat: no-repeat;
+        background-size: 10px;
+        background-position: 50%;
+        transform: scale(2);
+      }
+      .ui-datepicker-header a > span {
+        display: none;
+      }
+      .ui-datepicker-title {
+        text-align: center;
+        line-height: 2rem;
+        margin-bottom: 0.25rem;
+        font-size: 0.875rem;
+        font-weight: 500;
+        padding-bottom: 0.25rem;
+      }
+      .ui-datepicker-week-col {
+        color: #78909c;
+        font-weight: 400;
+        font-size: 0.75rem;
+      }
+
+      .ui-datepicker-week-end a.ui-state-default {
+        background-color: #ede7e9;
+      }
+
+      .ui-datepicker-week-end span {
+        color: #848789;
+      }
+
+      /* SELECT (WITHIN DATE PICKER) */
+      .ui-datepicker-month {
+        width: 120px;
+        font-size: 16px;
+        font-weight: 400;
+        border: 2px solid transparent;
+        border-color: transparent transparent #d1d2d1 transparent;
+      }
+
+      .ui-datepicker-year {
+        width: 120px;
+        font-size: 16px;
+        font-weight: 400;
+        border: 2px solid transparent;
+        border-color: transparent transparent #d1d2d1 transparent;
+      }
+
+      /* THINGS OUTSIDE THE DATEPICKER */
+      .datepicker-box {
+        flex-direction: row;
+        display: flex;
+      }
+
+      .datepicker-icon {
+        padding: 10px;
+        color: #4b0f1e;
+        min-width: 50px;
+        text-align: center;
+        margin-left: auto;
+      }
+    </style>
+    <body>
+      <!-- ELEMENT HERE -->
+      <div class="dp-wrapper">
+        <label for="datepicker">
+          <div class="datepicker-box">
+            <input
+              type="text"
+              id="datepicker"
+              autocomplete="off"
+              placeholder="Select date"
+            />
+            <i class="fa fa-calendar datepicker-icon"></i>
+          </div>
+        </label>
+      </div>
+    </body>
+  </head>
+</html>
