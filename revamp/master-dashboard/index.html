@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <meta
+      name="author"
+      content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
+    />
+    <meta name="generator" content="Hugo 0.104.2" />
+    <title>Master Dashboard</title>
+    <!-- import css for top bars -->
+    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="dashboard.css" rel="stylesheet" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!-- Import css for icon -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <!-- TOP MOST navbar (the one with simplified logo) -->
+  <nav class="top-nav">
+    <div class="navbar navbar-expand">
+      <div class="container-fluid">
+        <ul class="navbar-nav navbar-nav-right mr-auto">
+          <li class="inc-push-meu-icon">
+            <g class="square-logo-group">
+              <div class="square-logo-container" id="square-logo">
+                <a href="#">
+                  <svg width="32" height="22" fill="white" class="push-enLogo" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1122_16043)">
+                      <path fill="white" d="M27.0145 16.3967C28.1094 14.4749 28.7374 12.3088 28.9628 10.1916H25.6137C25.5332 11.4945 25.2755 12.8137 24.8247 14.0026C24.3899 15.1589 23.8264 16.2012 23.1018 17.0481C22.0069 18.3185 20.6222 19.1328 19.0281 19.1328C17.1442 19.1328 15.8561 18.3185 15.3731 16.9504H11.7985C11.2189 18.3673 9.85024 19.0676 8.11127 19.0676C6.21129 19.0676 4.263 17.6833 4.03758 14.8658H15.2282C15.518 13.4814 16.5968 12.4391 18.3519 11.7551C18.3519 11.7551 19.9781 11.1525 21.5883 10.4522C23.8264 9.40983 25.5009 7.5369 25.5009 5.17538C25.5009 1.82039 22.6671 0.664062 20.0908 0.664062C16.8544 0.664062 14.4553 2.39041 14.4553 5.12652C14.4553 6.73887 15.3248 8.2535 16.5968 9.78441C15.9205 10.0287 15.2604 10.3382 14.6646 10.729C13.6341 7.84634 11.2511 5.97341 8.01466 5.97341C3.74775 5.97341 0.65625 9.21439 0.65625 13.7909C0.65625 18.1393 3.42572 21.8689 8.25618 21.8689C10.4782 21.8689 12.1528 21.0546 13.3121 19.8982C14.5036 21.1197 16.2748 21.8689 18.4485 21.8689C21.1213 21.8689 23.3111 20.794 24.9857 19.1328L27.1272 21.5106H31.6839L27.0145 16.3967ZM20.123 3.20473C21.3467 3.20473 22.3611 3.90504 22.3611 5.28938C22.3611 6.55972 21.6044 7.79748 19.8976 8.56294L19.8654 8.53037C18.8671 7.45547 17.9171 6.21771 17.9171 5.0288C17.9171 3.88876 18.9476 3.20473 20.123 3.20473ZM8.03076 8.59551C9.97905 8.59551 11.7663 10.0287 11.8629 12.4065H4.03758C4.3113 9.52383 6.46891 8.59551 8.03076 8.59551Z"></path>
+                    </g>
+                  </svg>
+                </a>
+              </div>
+            </g>
+          </li>
+        </ul>
+        <div class="top-nav-options-mid">
+          <ul class="navbar-nav mt-1 me-auto mb-2 mb-lg-0">
+            <li class="nav-item balance-item">
+              <a class="balance-item" aria-current="page" href="#"
+                >Balance: <b class="balance-text">USD 9,999,999</b></a
+              >
+            </li>
+            <li class="mx-3">
+              <a href="#" class="notification-button">
+                <i class="fa-2x fa-solid fa-bell top-bell-icon"></i>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+        <div class="top-nav-options-spacer"></div>
+        <div class="top-nav-options-left">
+          <ul class="navbar-nav navbar-nav-left">
+            <!-- Current Session: Logged-Out -->
+            <li class="nav-item first last">
+              <a
+                style="text-decoration: none"
+                class="nav-link"
+                href="https://otewww2.nic.ae/login.html"
+                id="myAccountDropdown"
+                >ACCOUNT LOGIN</a
+              >
+            </li>
+            <li class="nav-item first last">
+              <a
+                href="https://otewww2.nic.ae/masterFlow.html?_flowId=masterFlow&amp;act=viewShoppingCart&amp;searchType=single&amp;from=wam"
+                class="nav-link"
+              >
+                CART
+                <svg
+                  id="top-nav-cart"
+                  viewBox="0 0 25 23"
+                  width="100%"
+                  height="100%"
+                >
+                  <g stroke="#353738" fill="none">
+                    <path
+                      d="M7.407 20.044c0 .91-.729 1.647-1.627 1.647-.899 0-1.627-.737-1.627-1.647s.729-1.647 1.627-1.647c.899 0 1.627.737 1.627 1.647zM18.39 20.044c0 .91-.729 1.647-1.627 1.647-.899 0-1.627-.737-1.627-1.647s.729-1.647 1.627-1.647c.899 0 1.627.737 1.627 1.647zM24.898 1.103h-3.59l-4.139 17.294h-11.39M17.576 16.75h-13.194l-3.077-9.882h18.623"
+                    ></path>
+                  </g>
+                </svg>
+                <span class=""> </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- the top nav bar with the full logo -->
+  <nav class="main-menu">
+    <div class="navbar navbar-expand">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#mainMenuNav"
+          aria-controls="nmainMenuNav"
+          aria-expanded="false"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainMenuNav">
+          <div id="header-logo-container">
+            <a
+              class="navbar-brand"
+              href="https://otewww2.nic.ae/masterFlow.html?&amp;act=RG&amp;searchType=single"
+            >
+              <svg id="logo-svg-container" xmlns="http://www.w3.org/2000/svg">
+                <path class="logo-element" d="M263.429 115C274.159 115 282.649 110.66 286.289 102H306.549C302.219 116.92 288.359 132.19 264.289 132.19C234.289 132.19 217.189 109.29 217.189 82.5698C217.189 54.4598 236.409 34.5098 262.909 34.5098C291.479 34.5098 309.319 57.7598 307.589 89.1598H238.139C239.529 106.53 251.649 115 263.429 115ZM286.629 74.0598C286.109 59.4798 275.029 50.6398 262.909 50.6398C253.209 50.6398 239.909 56.3598 238.139 74.0598H286.629Z"></path>
+                <path class="logo-element" d="M369.36 34.5312C391.87 34.5312 401.05 49.1012 401.05 71.3112V130.001H380.44V76.3412C380.44 63.6812 378.54 51.3413 362.78 51.3413C347.02 51.3413 341.13 63.4812 341.13 80.3412V130.001H320.52V36.6113H341.13V49.6113C346.5 39.9113 356.37 34.5312 369.36 34.5312Z"></path>
+                <path class="logo-element" d="M442.06 12V36.61H460.76V51.53H442.06V102.37C442.06 111.91 444.31 114.16 453.14 114.16H460.59V130H445.35C425.43 130 421.45 124.62 421.45 105.54V51.54H407.6V36.61H421.45V12H442.06Z"></path>
+                <path class="logo-element" d="M510.429 115C521.159 115 529.649 110.66 533.289 102H553.549C549.219 116.92 535.359 132.19 511.289 132.19C481.289 132.19 464.189 109.29 464.189 82.5698C464.189 54.4598 483.409 34.5098 509.909 34.5098C538.479 34.5098 556.319 57.7598 554.589 89.1598H485.139C486.529 106.53 498.649 115 510.429 115ZM533.629 74.0598C533.109 59.4798 522.029 50.6398 509.909 50.6398C500.209 50.6398 486.909 56.3598 485.139 74.0598H533.629Z"></path>
+                <path class="logo-element" d="M608.569 57.0814C595.569 57.0814 588.129 62.2914 588.129 81.0814V130.001H567.529V36.6114H587.789V53.2714C592.789 42.8614 601.789 36.6114 613.069 36.4414C614.864 36.4684 616.656 36.5852 618.439 36.7914V57.6114C615.16 57.2699 611.866 57.093 608.569 57.0814Z"></path>
+                <path class="logo-element" d="M647.911 49.1012C653.451 39.9113 663.151 34.5312 675.621 34.5312C698.301 34.5312 715.621 53.4412 715.621 83.2812C715.621 113.281 698.301 132.211 675.621 132.211C663.151 132.211 653.451 126.831 647.911 117.631V160.311H627.301V36.6113H647.911V49.1012ZM694.151 83.2812C694.151 63.6812 685.491 51.3613 671.151 51.3613C657.641 51.3613 647.081 61.7712 647.081 83.2812C647.081 104.791 657.641 115.381 671.151 115.381C685.491 115.381 694.151 103.061 694.151 83.2812Z"></path>
+                <path class="logo-element" d="M770 57.0814C757 57.0814 749.57 62.2914 749.57 81.0814V130.001H729V36.6114H749.26V53.2714C754.26 42.8614 763.26 36.6114 774.55 36.4414C776.1 36.4414 778.36 36.6114 779.92 36.7914V57.6114C776.624 57.2683 773.313 57.0914 770 57.0814Z"></path>
+                <path class="logo-element" d="M809.38 24.9999H788.77V4.16992H809.38V24.9999ZM809.38 130H788.77V36.6099H809.38V130Z" ></path>
+                <path class="logo-element" d="M861 50.3198C852 50.3198 843.68 54.3198 843.68 60.5598C843.68 66.7998 848.18 70.0998 856.15 71.6598L869.31 74.2598C888.22 77.8998 902.6 83.7998 902.6 102C902.6 121.43 884.24 132.19 863.11 132.19C840.26 132.19 825.02 119.19 822.76 101.48H842.85C844.76 111.02 851.68 116.57 863.85 116.57C874.58 116.57 882.55 112.06 882.55 104.43C882.55 96.7998 875.62 93.3298 866.44 91.5898L852.44 88.8098C836.68 85.6898 824.38 78.5798 824.38 61.5798C824.38 45.0898 842.05 34.5098 862.31 34.5098C880.49 34.5098 897.12 43.3598 900.93 62.0998H881.53C879.22 53.6198 871.43 50.3198 861 50.3198Z"></path>
+                <path class="logo-element" d="M956 115C966.74 115 975.22 110.66 978.86 102H999.12C994.79 116.92 980.94 132.19 956.87 132.19C926.87 132.19 909.76 109.29 909.76 82.5698C909.76 54.4598 928.99 34.5098 955.48 34.5098C984.06 34.5098 1001.89 57.7598 1000.16 89.1598H930.67C932.05 106.53 944.18 115 956 115ZM979.21 74.0598C978.69 59.4798 967.6 50.6398 955.48 50.6398C945.78 50.6398 932.48 56.3598 930.72 74.0598H979.21Z"></path>
+                <path class="logo-element" d="M165.72 98.4698C172.337 86.7225 176.469 73.7406 177.86 60.3298H157.05C156.589 68.3287 154.955 76.2164 152.2 83.7398C149.731 90.5568 146.093 96.8915 141.45 102.46C134.69 110.26 126.02 115.29 116.14 115.29C104.47 115.29 96.45 110.29 93.42 101.92H71.19C67.55 110.59 59.05 114.92 48.31 114.92C36.52 114.92 24.38 106.42 22.99 89.0898H92.54C94.32 80.5598 101.07 74.1698 112 69.9998C112 69.9998 122.08 66.2698 132.11 61.9998C145.98 55.5798 156.38 44.1398 156.38 29.5798C156.38 8.94984 138.7 1.83984 122.75 1.83984C102.64 1.83984 87.75 12.4198 87.75 29.2298C87.75 39.1098 93.13 48.4698 101.1 57.8398C96.8997 59.3154 92.8753 61.2504 89.1 63.6098C82.67 45.9998 67.89 34.4898 47.79 34.4898C21.26 34.4898 2 54.4198 2 82.5098C2 109.21 19.16 132.09 49.15 132.09C62.94 132.09 73.37 127.09 80.59 120.03C88 127.5 99 132.1 112.5 132.1C129.14 132.1 142.67 125.51 153.07 115.29L166.41 129.85H194.67L165.72 98.4698ZM122.9 17.4698C130.53 17.4698 136.77 21.8098 136.77 30.2998C136.77 38.0998 132.09 45.7298 121.52 50.4098L121.34 50.2398C115.1 43.6498 109.21 36.0198 109.21 28.7398C109.21 21.6698 115.62 17.5098 122.9 17.5098V17.4698ZM47.79 50.6098C59.92 50.6098 71 59.4498 71.54 73.9998H23C24.73 56.3298 38.08 50.6098 47.79 50.6098Z"></path>
+              </svg>
+            </a>
+          </div>
+          <div class="nav-option-wrapper">
+            <ul class="navbar-nav navbar-nav-right mr-auto">
+              <li class="nav-item dropdown first">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="https://otewww2.nic.ae/masterFlow.html?execution=e2s1#"
+                  id="domainNamesDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Domain Names
+                </a>
+                <div
+                  class="dropdown-menu"
+                  aria-labelledby="domainNamesDropdown"
+                >
+                  <div class="container-fluid">
+                    <div class="row menu-wrapper">
+                      <div class="col-12 col-menu">
+                        <ul class="nav flex-column">
+                          <li class="nav-item nav-title first">
+                            <a
+                              class="nav-link active"
+                              href="https://otewww2.nic.ae/masterFlow.html?execution=e2s1#"
+                            >
+                              Domain Names
+                              <svg
+                                class="dropdown-nav-arrow"
+                                viewBox="0 0 9 13"
+                                width="100%"
+                                height="100%"
+                              >
+                                <path
+                                  d="M0,3H1V4H2V5H3V6H4V7H3V8H2V9H1v1H0v2H1v1H2V12H3V11H4V10H5V9H6V8H7V7H8V6H7V5H6V4H5V3H4V2H3V1H2V0H1V1H0V3Z"
+                                ></path>
+                              </svg>
+                            </a>
+                          </li>
+                          <li class="nav-item">
+                            <a
+                              class="nav-link"
+                              href="https://otewww2.nic.ae/masterFlow.html?&amp;act=RG&amp;searchType=single"
+                              >Register Domain</a
+                            >
+                          </li>
+                          <li class="nav-item last">
+                            <a
+                              class="nav-link"
+                              href="https://otewww2.nic.ae/masterFlow.html?_flowId=masterFlow&amp;act=TF&amp;searchType=single"
+                              >Transfer Domain to Etisalat</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="https://otewww2.nic.ae/masterFlow.html?execution=e2s1#"
+                  id="partnersDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Partners
+                </a>
+                <div class="dropdown-menu" aria-labelledby="partnersDropdown">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-12 col-menu">
+                        <ul class="nav flex-column">
+                          <li class="nav-item nav-title first">
+                            <a
+                              class="nav-link active"
+                              href="https://otewww2.nic.ae/masterFlow.html?execution=e2s1#"
+                            >
+                              Partners
+                              <svg
+                                class="dropdown-nav-arrow"
+                                viewBox="0 0 9 13"
+                                width="100%"
+                                height="100%"
+                              >
+                                <path
+                                  d="M0,3H1V4H2V5H3V6H4V7H3V8H2V9H1v1H0v2H1v1H2V12H3V11H4V10H5V9H6V8H7V7H8V6H7V5H6V4H5V3H4V2H3V1H2V0H1V1H0V3Z"
+                                ></path>
+                              </svg>
+                            </a>
+                          </li>
+                          <li class="nav-item last">
+                            <a
+                              class="nav-link"
+                              href="https://otewww2.nic.ae/content.jsp?action=partner"
+                              >Become a Partner</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://otewww2.nic.ae/content.jsp?action=whois_info"
+                  >WHOIS</a
+                >
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="https://otewww2.nic.ae/masterFlow.html?execution=e2s1#"
+                  id="supportDropdown"
+                  role="button"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Support
+                </a>
+                <div class="dropdown-menu" aria-labelledby="supportDropdown">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-12 col-menu">
+                        <ul class="nav flex-column">
+                          <li class="nav-item nav-title first">
+                            <a
+                              class="nav-link active"
+                              href="https://otewww2.nic.ae/masterFlow.html?execution=e2s1#"
+                            >
+                              Support
+                              <svg
+                                class="dropdown-nav-arrow"
+                                viewBox="0 0 9 13"
+                                width="100%"
+                                height="100%"
+                              >
+                                <path
+                                  d="M0,3H1V4H2V5H3V6H4V7H3V8H2V9H1v1H0v2H1v1H2V12H3V11H4V10H5V9H6V8H7V7H8V6H7V5H6V4H5V3H4V2H3V1H2V0H1V1H0V3Z"
+                                ></path>
+                              </svg>
+                            </a>
+                          </li>
+
+                          <!-- Current Session: Logged-Out -->
+                          <li class="nav-item">
+                            <a
+                              class="nav-link"
+                              href="https://otewww2.nic.ae/login.html?go=ticket"
+                              target="_blank"
+                              >Submit a Ticket</a
+                            >
+                          </li>
+                          <li class="nav-item">
+                            <a
+                              class="nav-link"
+                              href="https://otewww2.nic.ae/login.html?go=livechat"
+                              target="_blank"
+                              >Live Chat</a
+                            >
+                          </li>
+
+                          <li class="nav-item">
+                            <a
+                              class="nav-link"
+                              href="https://otewww2.nic.ae/content.jsp?action=faq"
+                              >FAQ</a
+                            >
+                          </li>
+                          <li class="nav-item last">
+                            <a
+                              class="nav-link"
+                              href="https://otewww2.nic.ae/content.jsp?action=contactus"
+                              >Contact Us</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </li>
+              <li class="nav-item last">
+                <a
+                  class="nav-link"
+                  href="https://otewww2.nic.ae/content.jsp?action=contactus"
+                  >Contact Us</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <!-- ALERT / notice banner -->
+  <nav class="noticeBanner banner-info" id="noticeBanner">
+    <div class="navbar navbar-expand">
+      <div class="container-fluid">
+        <div class="alert-content titled" id="alert-content">
+          <span class="alert-icon">
+              <!-- We will include all items to make it load faster -->
+              <svg xmlns="http://www.w3.org/2000/svg" class="error" viewBox="0 0 24 24"><path d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z" /></svg>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="info" viewBox="0 0 24 24"><path d="M11,15H13V17H11V15M11,7H13V13H11V7M12,2C6.47,2 2,6.5 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20Z" /></svg>
+              <svg xmlns="http://www.w3.org/2000/svg" class="success" viewBox="0 0 24 24"><path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" /></svg>
+          </span>
+          <div class="alert-message">
+              <h6 style="margin-bottom: 0" class="alert-title" id="alert-title">
+                This is a title!
+              </h6>
+              <h6 style="margin-bottom: 0" class="alert-description">
+              Our Online Portal will be taken offline on 30-Jan-2023 from
+              00:00hrs to 02:00hrs (UAE time +4 GMT) due to a scheduled
+              maintenance.
+              </h6>
+              <h6 style="margin-bottom: 0" class="alert-action" id="alert-action" onclick="console.log('action invoked')">
+              Click me!
+              </h6>
+          </div>
+          <button
+            type="button"
+            id="alert-close"
+            class="close closeX alert-button"
+            onclick="closeNoticeBanner()"
+          >
+            ×
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <body>
+    <div class="topnav-spacer">
+      If you see this something is wrong
+    </div>
+    <!-- CONTENT -->
+    <main class="main-bg">
+      <!--   <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas> -->
+      <div class="custom-container main-content col-md-12 col-lg-12 mx-auto">
+        <div class="row justify-content-center">
+          <div class="col-lg-5 custom-card p-4 mx-2">
+            <h3>
+              TextHover
+            </h3>
+            <div class="announcement-block mt-4">
+              <ul class="announcement-link">
+                <li><a href="#">Announcement 1</a></li>
+                <li><a href="#">Announcement 2</a></li>
+                <li>
+                  <div class="col-12 mt-4 text-left">
+                    <button class="btn btn-secondary btn-large">Secondary</button>
+                  </div>
+                </li>
+                <li>
+                  <div class="col-12 mt-4 text-left">
+                    <button class="btn btn-tertiary btn-large">Tertiary</button>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="col-lg-6 custom-card p-4 mx-2">
+            <h3 style="font-family: Inter-Bold">
+              Selects
+            </h3>
+            <div class="row mt-5">
+              <div class="col-7">
+                <h2>DropDown</h2>
+                <div class="custom-select">
+                  <select>
+                    <option value="0">Select car:</option>
+                    <option value="1">Audi</option>
+                    <option value="2">BMW</option>
+                    <option value="3">Citroen</option>
+                    <option value="4">Ford</option>
+                    <option value="5">Honda</option>
+                    <option value="6">Jaguar</option>
+                    <option value="7">Land Rover</option>
+                    <option value="8">Mercedes</option>
+                    <option value="9">Mini</option>
+                    <option value="10">Nissan</option>
+                    <option value="11">Toyota</option>
+                    <option value="12">Volvo</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-5">
+                <h2> Datepicker</h2>
+                <div class="dp-wrapper">
+                  <label for="datepicker">
+                    <div class="datepicker-box">
+                      <input
+                        type="text"
+                        id="datepicker"
+                        autocomplete="off"
+                        placeholder="Select date"
+                      />
+                      <i class="fa fa-calendar datepicker-icon"></i>
+                    </div>
+                  </label>
+                </div>
+              </div>
+              <div class="col-12 mt-4 text-left">
+                <button class="btn btn-primary btn-large">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- end first row -->
+
+        <div class="row mt-5 justify-content-center">
+          <div class="col-lg-6 px-4 mx-2">
+            <h3 style="font-family: Inter-Bold">Graph Widgets</h3>
+            <canvas
+              class="my-4 w-100"
+              id="myChart"
+              width="900"
+              height="380"
+            ></canvas>
+          </div>
+
+          <div class="col-lg-5 mx-2">
+            <div
+              id="carouselExampleIndicators"
+              class="carousel slide"
+              data-ride="carousel"
+            >
+              <ol class="carousel-indicators">
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="0"
+                  class="active"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="1"
+                ></li>
+                <li
+                  data-target="#carouselExampleIndicators"
+                  data-slide-to="2"
+                ></li>
+              </ol>
+              <div class="carousel-inner custom-carousel">
+                <div class="carousel-item active">
+                  <img
+                    class="d-block w-100"
+                    src="../assets/dist/img/carousel-img.jpg"
+                    alt="First slide"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    class="d-block w-100"
+                    src="../assets/dist/img/carousel-img.jpg"
+                    alt="Second slide"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    class="d-block w-100"
+                    src="../assets/dist/img/carousel-img.jpg"
+                    alt="Third slide"
+                  />
+                </div>
+              </div>
+              <a
+                class="carousel-control-prev"
+                href="#carouselExampleIndicators"
+                role="button"
+                data-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Previous</span>
+              </a>
+              <a
+                class="carousel-control-next"
+                href="#carouselExampleIndicators"
+                role="button"
+                data-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="sr-only">Next</span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- end second row -->
+
+        <div class="row justify-content-center">
+          <div class="col-lg-5 custom-card p-4 mx-2">
+            <h3>
+              TextBox & TextFields
+            </h3>
+            <div class="announcement-block mt-4">
+              <h2>TextBox</h2>
+              <div class="bordered-input" id="text-border">
+                <!-- <input type="text" id="tb-enter" placeholder="tb-enter your domain here" /> -->
+                <div class="tb-wrap">
+                  <br />
+                  <input
+                    type="text"
+                    value=""
+                    class="inputText"
+                    id="tb-enter"
+                    onkeyup="this.setAttribute('value', this.value);"
+                  />
+                  <span class="floating-label">Your email address</span>
+                </div>
+                <button class="tb-btn" id="tb-trail-button"></button>
+              </div>
+              <h2>TextField</h2>
+              <div class="borderless-input" id="text-borderless">
+                <div class="tf-wrap">
+                  <br />
+                  <input
+                    type="text"
+                    value=""
+                    class="inputText"
+                    id="tf-enter"
+                    onkeyup="this.setAttribute('value', this.value);"
+                  />
+                  <span class="floating-label">Your email address</span>
+                </div>
+                <button class="tf-btn" id="tf-trail-button"></button>
+              </div>
+              <div class="borderless-error"><p id="errorMsg">error</p></div>
+            </div>
+          </div>
+
+          <div class="col-lg-5 custom-card p-4 mx-2">
+            <h3 style="font-family: Inter-Bold">
+              Simple elements (radio,toggle,checkbox)
+            </h3>
+            <div class="row mt-5">
+              <div class="col-7">
+                <h2>Toggle</h2>
+                <div>
+                  <h3>normal</h3>
+                  <label class="switch">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                  <label class="switch">
+                    <input type="checkbox" checked />
+                    <span class="slider round"></span>
+                  </label>
+
+                  <h3>Locked</h3>
+                  <label class="switch locked">
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </label>
+                  <label class="switch locked">
+                    <input type="checkbox" checked />
+                    <span class="slider round"></span>
+                  </label>
+                </div>
+              </div>
+              <div class="col-5">
+                <h2>Radio</h2>
+                <div>
+                  <form class="rf-wrapper" action="">
+                    <label class="radio-form">
+                      <input type="radio" name="radio" class="radio-input" />
+                      Radio
+                    </label>
+                    <label class="radio-form">
+                      <input type="radio" name="radio" class="radio-input" checked />
+                      Radio - Checked
+                    </label>
+                    <label class="radio-form">
+                      <input type="radio" name="radio" class="radio-input" />
+                      Radio - Hover
+                    </label>
+                  </form>
+                </div>
+              </div>
+              <div class="col-12 mt-4 text-left">
+                <h2>Checkbox</h2>
+                <div>
+                  <label class="cb-wrapper"
+                    >Caramel
+                    <input type="checkbox" checked="checked" />
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="cb-wrapper"
+                    >Chocolate
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="cb-wrapper"
+                    >Vanilla
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                  </label>
+                  <label class="cb-wrapper"
+                    >Pistachio
+                    <input type="checkbox" />
+                    <span class="checkmark"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        <!-- End Third Row -->
+        
+    </main>
+    <div id="footerDIV" style="display: block">
+      <footer class="background-white mt-5">
+        <div class="container-fluid">
+          <div id="newFooterDIV">
+            <div id="footerLogo-col" class="footer-col">
+              <svg id="svg-container" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  class="logo-element"
+                  d="M263.429 115C274.159 115 282.649 110.66 286.289 102H306.549C302.219 116.92 288.359 132.19 264.289 132.19C234.289 132.19 217.189 109.29 217.189 82.5698C217.189 54.4598 236.409 34.5098 262.909 34.5098C291.479 34.5098 309.319 57.7598 307.589 89.1598H238.139C239.529 106.53 251.649 115 263.429 115ZM286.629 74.0598C286.109 59.4798 275.029 50.6398 262.909 50.6398C253.209 50.6398 239.909 56.3598 238.139 74.0598H286.629Z"
+                ></path>
+                <path
+                  class="logo-element"
+                  d="M369.36 34.5312C391.87 34.5312 401.05 49.1012 401.05 71.3112V130.001H380.44V76.3412C380.44 63.6812 378.54 51.3413 362.78 51.3413C347.02 51.3413 341.13 63.4812 341.13 80.3412V130.001H320.52V36.6113H341.13V49.6113C346.5 39.9113 356.37 34.5312 369.36 34.5312Z"
+                ></path>
+                <path
+                  class="logo-element"
+                  d="M442.06 12V36.61H460.76V51.53H442.06V102.37C442.06 111.91 444.31 114.16 453.14 114.16H460.59V130H445.35C425.43 130 421.45 124.62 421.45 105.54V51.54H407.6V36.61H421.45V12H442.06Z"
+                ></path>
+                <path
+                  class="logo-element"
+                  d="M510.429 115C521.159 115 529.649 110.66 533.289 102H553.549C549.219 116.92 535.359 132.19 511.289 132.19C481.289 132.19 464.189 109.29 464.189 82.5698C464.189 54.4598 483.409 34.5098 509.909 34.5098C538.479 34.5098 556.319 57.7598 554.589 89.1598H485.139C486.529 106.53 498.649 115 510.429 115ZM533.629 74.0598C533.109 59.4798 522.029 50.6398 509.909 50.6398C500.209 50.6398 486.909 56.3598 485.139 74.0598H533.629Z"
+                ></path>
+                <path
+                  class="logo-element"
+                  d="M608.569 57.0814C595.569 57.0814 588.129 62.2914 588.129 81.0814V130.001H567.529V36.6114H587.789V53.2714C592.789 42.8614 601.789 36.6114 613.069 36.4414C614.864 36.4684 616.656 36.5852 618.439 36.7914V57.6114C615.16 57.2699 611.866 57.093 608.569 57.0814Z"
+                ></path>
+                <path
+                  class="logo-element"
+                  d="M647.911 49.1012C653.451 39.9113 663.151 34.5312 675.621 34.5312C698.301 34.5312 715.621 53.4412 715.621 83.2812C715.621 113.281 698.301 132.211 675.621 132.211C663.151 132.211 653.451 126.831 647.911 117.631V160.311H627.301V36.6113H647.911V49.1012ZM694.151 83.2812C694.151 63.6812 685.491 51.3613 671.151 51.3613C657.641 51.3613 647.081 61.7712 647.081 83.2812C647.081 104.791 657.641 115.381 671.151 115.381C685.491 115.381 694.151 103.061 694.151 83.2812Z"
+                ></path>
+                <path
+                  class="logo-element"
+                  d="M770 57.0814C757 57.0814 749.57 62.2914 749.57 81.0814V130.001H729V36.6114H749.26V53.2714C754.26 42.8614 763.26 36.6114 774.55 36.4414C776.1 36.4414 778.36 36.6114 779.92 36.7914V57.6114C776.624 57.2683 773.313 57.0914 770 57.0814Z"
+                ></path>
+                <path
+                  class="logo-element"
+                  d="M809.38 24.9999H788.77V4.16992H809.38V24.9999ZM809.38 130H788.77V36.6099H809.38V130Z"
+                ></path>
+                <path
+                  class="logo-element"
+                  d="M861 50.3198C852 50.3198 843.68 54.3198 843.68 60.5598C843.68 66.7998 848.18 70.0998 856.15 71.6598L869.31 74.2598C888.22 77.8998 902.6 83.7998 902.6 102C902.6 121.43 884.24 132.19 863.11 132.19C840.26 132.19 825.02 119.19 822.76 101.48H842.85C844.76 111.02 851.68 116.57 863.85 116.57C874.58 116.57 882.55 112.06 882.55 104.43C882.55 96.7998 875.62 93.3298 866.44 91.5898L852.44 88.8098C836.68 85.6898 824.38 78.5798 824.38 61.5798C824.38 45.0898 842.05 34.5098 862.31 34.5098C880.49 34.5098 897.12 43.3598 900.93 62.0998H881.53C879.22 53.6198 871.43 50.3198 861 50.3198Z"
+                ></path>
+                <path
+                  class="logo-element"
+                  d="M956 115C966.74 115 975.22 110.66 978.86 102H999.12C994.79 116.92 980.94 132.19 956.87 132.19C926.87 132.19 909.76 109.29 909.76 82.5698C909.76 54.4598 928.99 34.5098 955.48 34.5098C984.06 34.5098 1001.89 57.7598 1000.16 89.1598H930.67C932.05 106.53 944.18 115 956 115ZM979.21 74.0598C978.69 59.4798 967.6 50.6398 955.48 50.6398C945.78 50.6398 932.48 56.3598 930.72 74.0598H979.21Z"
+                ></path>
+                <path
+                  class="logo-element"
+                  d="M165.72 98.4698C172.337 86.7225 176.469 73.7406 177.86 60.3298H157.05C156.589 68.3287 154.955 76.2164 152.2 83.7398C149.731 90.5568 146.093 96.8915 141.45 102.46C134.69 110.26 126.02 115.29 116.14 115.29C104.47 115.29 96.45 110.29 93.42 101.92H71.19C67.55 110.59 59.05 114.92 48.31 114.92C36.52 114.92 24.38 106.42 22.99 89.0898H92.54C94.32 80.5598 101.07 74.1698 112 69.9998C112 69.9998 122.08 66.2698 132.11 61.9998C145.98 55.5798 156.38 44.1398 156.38 29.5798C156.38 8.94984 138.7 1.83984 122.75 1.83984C102.64 1.83984 87.75 12.4198 87.75 29.2298C87.75 39.1098 93.13 48.4698 101.1 57.8398C96.8997 59.3154 92.8753 61.2504 89.1 63.6098C82.67 45.9998 67.89 34.4898 47.79 34.4898C21.26 34.4898 2 54.4198 2 82.5098C2 109.21 19.16 132.09 49.15 132.09C62.94 132.09 73.37 127.09 80.59 120.03C88 127.5 99 132.1 112.5 132.1C129.14 132.1 142.67 125.51 153.07 115.29L166.41 129.85H194.67L165.72 98.4698ZM122.9 17.4698C130.53 17.4698 136.77 21.8098 136.77 30.2998C136.77 38.0998 132.09 45.7298 121.52 50.4098L121.34 50.2398C115.1 43.6498 109.21 36.0198 109.21 28.7398C109.21 21.6698 115.62 17.5098 122.9 17.5098V17.4698ZM47.79 50.6098C59.92 50.6098 71 59.4498 71.54 73.9998H23C24.73 56.3298 38.08 50.6098 47.79 50.6098Z"
+                ></path>
+              </svg>
+            </div>
+            <div id="footerSocial-col" class="footer-col">
+              <ul id="footer-social-ul" class="footer-col-ul">
+                <li class="footer-social-header">FOLLOW US</li>
+                <li>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    id="linkedIn-svg"
+                    width="26"
+                    height="26"
+                    transform="translate(0 5)"
+                  >
+                    <a
+                      href="https://www.linkedin.com/company/etisalatandenterprise/"
+                      title="linkedIn-icon"
+                      target="_blank"
+                    >
+                      <g
+                        id="Group_5"
+                        data-name="Group 5"
+                        transform="translate(-626 -451)"
+                      >
+                        <rect
+                          id="Rectangle_2"
+                          data-name="Rectangle 2"
+                          width="48"
+                          height="48"
+                          rx="7"
+                          transform="translate(627 452) scale(0.5, 0.5)"
+                          fill="#fff"
+                        ></rect>
+                        <g id="Group_4" transform="translate(-5 7)">
+                          <path
+                            id="Path_1"
+                            data-name="Path 1"
+                            d="M22,48V26H16V48Z"
+                            transform="translate(628 441) scale(0.5, 0.5)"
+                            fill-rule="evenodd"
+                          ></path>
+                          <path
+                            id="Path_2"
+                            data-name="Path 2"
+                            d="M19.358,23c2.512,0,4.076-1.474,4.076-3.554C23.387,17.32,21.87,15.8,19.406,15.8s-4.076,1.475-4.076,3.6c0,2.08,1.563,3.6,3.981,3.6h.047Z"
+                            transform="translate(628 441) scale(0.5, 0.5)"
+                            fill-rule="evenodd"
+                          ></path>
+                          <path
+                            id="Path_4"
+                            data-name="Path 4"
+                            d="M50,57H14a7.009,7.009,0,0,1-7-7V14a7.009,7.009,0,0,1,7-7H50a7.009,7.009,0,0,1,7,7V50A7.009,7.009,0,0,1,50,57ZM14,9a5.006,5.006,0,0,0-5,5V50a5.006,5.006,0,0,0,5,5H50a5.006,5.006,0,0,0,5-5V14a5.006,5.006,0,0,0-5-5Z"
+                            transform="translate(628 441) scale(0.5, 0.5)"
+                            fill="#fff"
+                          ></path>
+                          <path
+                            id="Path_3"
+                            data-name="Path 3"
+                            d="M26.946,48H34V35.911a4.844,4.844,0,0,1,.313-1.758,4.182,4.182,0,0,1,3.867-2.635c2.607,0,3.821,1.988,3.821,4.9V48h6V35.588c0-6.657-3.085-9.5-7.826-9.5C36.289,26.09,35.051,28,34.1,30H34V26H26.946c.095,2-.175,22-.175,22Z"
+                            transform="translate(628 441) scale(0.5, 0.5)"
+                            fill-rule="evenodd"
+                          ></path>
+                        </g>
+                      </g>
+                    </a>
+                  </svg>
+                </li>
+              </ul>
+            </div>
+            <div id="footerLinks-col" class="footer-col">
+              <ul id="footer-links-ul" class="footer-col-ul">
+                <li>
+                  <a
+                    class="footer-link-item"
+                    href="/en/general/privacy-policy.html"
+                    title="Privacy Policy"
+                    target="_self"
+                    >Privacy Policy</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-link-item"
+                    href="/content/dam/eandenterprise/en/system/assets/docs/code-of-conduct.pdf"
+                    title="Code of Conduct"
+                    target="_self"
+                    >Code of Conduct</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="footer-link-item"
+                    href="/en/general/general-terms.html"
+                    title="Terms &amp; Conditions"
+                    target="_self"
+                    >Terms &amp; Conditions</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script>
+      // Scripts for alert
+      function summonAlert(str) {
+        banner = document.getElementById("noticeBanner");
+        if (window.sessionStorage) {
+          window.sessionStorage.setItem("noticeBannerClosed", false);
+          banner.style.display = "inline";
+        }
+        // set the class of alert we want
+        // WARNING: THIS FUNCTION ASSUMES THE CLASS IS THE LAST ELEM!
+        // bcz add WILL ADD into the last index. 
+        bannerType = "banner-"+str
+        oldBannerType = banner.classList[banner.classList.length-1]
+        console.log(oldBannerType)
+        banner.classList.remove(oldBannerType);
+        banner.classList.add(bannerType);
+      }
+
+      function closeNoticeBanner() {
+        var banner = document.getElementById("noticeBanner");
+        if (banner !== undefined && banner !== null) {
+          banner.style.display = "none";
+          if (window.sessionStorage) {
+            window.sessionStorage.setItem("noticeBannerClosed", true);
+          }
+        }
+      }
+
+      function toggleBannerElem(elemId){
+        bannerElem = document.getElementById(elemId);
+        classTag = bannerElem.classList[bannerElem.classList.length-1]
+        // if off exists, remove it
+        if (classTag==="off"){
+          bannerElem.classList.remove("off");
+        }
+        else{
+          bannerElem.classList.add("off");
+        }
+        if(elemId==="alert-title"){
+          bannerContent = document.getElementById("alert-content");
+          if (classTag==="off"){
+            bannerContent.classList.add("titled");
+            bannerContent.classList.remove("untitled");
+          }
+          else{
+            bannerContent.classList.add("untitled");
+            bannerContent.classList.remove("titled");
+          }
+        }
+      }
+
+      function renderBanner(){
+        if (
+        window.sessionStorage &&
+        !window.sessionStorage.getItem("noticeBannerClosed")
+        ) {
+        var now = new Date();
+        var validDate = new Date(2023, 0, 30, 2);
+        if (now.getTime() < validDate) {
+          var banner = document.getElementById("noticeBanner");
+          if (banner !== undefined && banner !== null) {
+            banner.removeAttribute("style");
+          }
+        }
+        }
+      }
+      // render banner on load
+      renderBanner()
+    </script>
+    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+      integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+      integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+      crossorigin="anonymous"
+    ></script>
+    <script src="dashboard.js"></script>
+    <!-- Script for drop down table -->
+    <script>
+      var x, i, j, l, ll, selElmnt, a, b, c;
+      /*look for any elements with the class "custom-select":*/
+      x = document.getElementsByClassName("custom-select");
+      l = x.length;
+      for (i = 0; i < l; i++) {
+        selElmnt = x[i].getElementsByTagName("select")[0];
+        ll = selElmnt.length;
+        /*for each element, create a new DIV that will act as the selected item:*/
+        a = document.createElement("DIV");
+        a.setAttribute("class", "select-selected");
+        a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+        x[i].appendChild(a);
+        /*for each element, create a new DIV that will contain the option list:*/
+        b = document.createElement("DIV");
+        b.setAttribute("class", "select-items select-hide");
+        for (j = 1; j < ll; j++) {
+          /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+          c = document.createElement("DIV");
+          c.innerHTML = selElmnt.options[j].innerHTML;
+          c.addEventListener("click", function (e) {
+            /*when an item is clicked, update the original select box,
+        and the selected item:*/
+            var y, i, k, s, h, sl, yl;
+            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+            sl = s.length;
+            h = this.parentNode.previousSibling;
+            for (i = 0; i < sl; i++) {
+              if (s.options[i].innerHTML == this.innerHTML) {
+                s.selectedIndex = i;
+                h.innerHTML = this.innerHTML;
+                y = this.parentNode.getElementsByClassName("same-as-selected");
+                yl = y.length;
+                for (k = 0; k < yl; k++) {
+                  y[k].removeAttribute("class");
+                }
+                this.setAttribute("class", "same-as-selected");
+                break;
+              }
+            }
+            h.click();
+          });
+          b.appendChild(c);
+        }
+        x[i].appendChild(b);
+        a.addEventListener("click", function (e) {
+          /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+          e.stopPropagation();
+          closeAllSelect(this);
+          this.nextSibling.classList.toggle("select-hide");
+          this.classList.toggle("select-arrow-active");
+        });
+      }
+      function closeAllSelect(elmnt) {
+        /*a function that will close all select boxes in the document,
+  except the current select box:*/
+        var x,
+          y,
+          i,
+          xl,
+          yl,
+          arrNo = [];
+        x = document.getElementsByClassName("select-items");
+        y = document.getElementsByClassName("select-selected");
+        xl = x.length;
+        yl = y.length;
+        for (i = 0; i < yl; i++) {
+          if (elmnt == y[i]) {
+            arrNo.push(i);
+          } else {
+            y[i].classList.remove("select-arrow-active");
+          }
+        }
+        for (i = 0; i < xl; i++) {
+          if (arrNo.indexOf(i)) {
+            x[i].classList.add("select-hide");
+          }
+        }
+      }
+      /*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+      document.addEventListener("click", closeAllSelect);
+    </script>
+    <!-- import jquery for calendar-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <!-- Script for datepicker -->
+    <script>
+      // JQUERY script
+      $(function () {
+        $("#datepicker").datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: "dd-mm-yy",
+          duration: "fast",
+          showOtherMonths: true,
+          dayNamesMin: ["SUN", "Mon", "Tue", "Wed", "Thu", "Fri", "SAT"],
+        });
+      });
+    </script>
+    <!-- Script for textbox & textfield-->
+    <script>
+      window.addEventListener("load", () => {
+        button = document.getElementById("tb-trail-button");
+        button.addEventListener("click", () => {
+          console.log("clicked trailing button 1");
+          txtbox = document.getElementById("text-border");
+          text = document.getElementById("tb-enter");
+          if (text.value != "etisalat") {
+            console.log(text);
+            txtbox.classList.add("tb-error");
+          } else {
+            txtbox.classList.remove("tb-error");
+          }
+        });
+      });
+
+      // script for textfield
+      window.addEventListener("load", () => {
+        button = document.getElementById("tf-trail-button");
+        button.addEventListener("click", () => {
+          console.log("clicked trailing button 2");
+          txtbox = document.getElementById("text-borderless");
+          text = document.getElementById("tf-enter");
+          error = document.getElementById("errorMsg");
+          if (text.value != "etisalat") {
+            console.log(text);
+            txtbox.classList.add("tf-error");
+            error.classList.add("show");
+          } else {
+            txtbox.classList.remove("tf-error");
+            error.classList.remove("show");
+          }
+        });
+      });      
+    </script>
+  </body>
+</html>

@@ -106,24 +106,25 @@
         />
         <span class="floating-label">Your email address</span>
       </div>
-      <button class="tb-btn" id="tb-trail-button"></button>
+      <button
+        class="tb-btn"
+        id="tb-trail-button"
+        onclick="tbClickHandle('text-border','tb-enter');"
+      ></button>
     </div>
 
     <script>
-      window.addEventListener("load", () => {
-        button = document.getElementById("tb-trail-button");
-        button.addEventListener("click", () => {
-          console.log("clicked trailing button 1");
-          txtbox = document.getElementById("text-border");
-          text = document.getElementById("tb-enter");
-          if (text.value != "etisalat") {
-            console.log(text);
-            txtbox.classList.add("tb-error");
-          } else {
-            txtbox.classList.remove("tb-error");
-          }
-        });
-      });
+      function tbClickHandle(tbBorderId, tbId) {
+        console.log("THIS IS JUST A PLACEHOLDER INTERACTION");
+        txtbox = document.getElementById(tbBorderId);
+        text = document.getElementById(tbId);
+        if (text.value != "etisalat") {
+          console.log(text.value);
+          txtbox.classList.add("tb-error");
+        } else {
+          txtbox.classList.remove("tb-error");
+        }
+      }
     </script>
   </body>
 </html>

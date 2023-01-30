@@ -1,0 +1,281 @@
+@font-face {
+  font-family: Inter;
+  src: url(../assets/font/Inter-Regular.otf);
+}
+
+@font-face {
+  font-family: Inter-Medium;
+  src: url(../assets/font/Inter-Medium.otf);
+}
+
+@font-face {
+  font-family: Inter-Bold;
+  src: url(../assets/font/Inter-Bold.otf);
+}
+
+@font-face {
+  font-family: Inter-Black;
+  src: url(../assets/font/Inter-Black.otf);
+}
+
+@font-face {
+  font-family: Inter-Italic;
+  src: url(../assets/font/Inter-Italic.otf);
+}
+
+@font-face {
+  font-family: Inter-MediumItalic;
+  src: url(../assets/font/Inter-MediumItalic.otf);
+}
+
+@font-face {
+  font-family: Inter-BoldItalic;
+  src: url(../assets/font/Inter-BoldItalic.otf);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  font-family: Inter;
+  /* background-color: #f5f5f5; */
+}
+
+.form-signin {
+  max-width: 400px;
+  padding: 15px;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.icon {
+  background: url("../assets/dist/img/jcaptcha.jpeg") no-repeat right;
+  background-size: 150px;
+}
+
+.carousel-border {
+  background: transparent linear-gradient(105.25deg, #936f78 0%, #4b0f1e 100%)
+    0% 0% no-repeat padding-box;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: #4b0f1e;
+  border-radius: 4px;
+  border: 1px solid #4b0f1e;
+  color: #fff;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.form-signin :not(.btn-check) + .btn:active {
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid #4b0f1e;
+  color: #4b0f1e;
+}
+/* LOGO */
+.logo-element {
+  scale: 0.3 0.3;
+  fill: #4b0f1e;
+}
+
+#logo-svg-container {
+  height: 55px;
+  margin: 20px 0px;
+}
+/* 
+* =====================
+* +      TEXTBOX      +
+* =====================
+*/
+
+.bordered-input {
+  /* width: 356px; */
+  width: 100%;
+  height: 65px;
+  position: relative;
+  display: flex;
+  border: 1px solid #4b0f1e;
+}
+
+.bordered-input #tb-trail-button:after {
+  content: url("information-outline.svg");
+  padding-right: 10px;
+}
+
+.tb-error #tb-trail-button:after {
+  content: url("x-circle.svg");
+}
+
+.bordered-input input {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  outline: none;
+  height: 100%;
+  border: 0px solid #4b0f1e;
+}
+
+.tb-error {
+  border: 1px solid #be1218;
+}
+
+.tb-btn {
+  z-index: 1;
+  border: none;
+  height: 100%;
+  cursor: pointer;
+  color: white;
+  background-color: inherit;
+}
+
+/* css for floating label (we will treat it as the entire textfield)*/
+.tb-wrap {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.tb-wrap .inputText {
+  width: 100%;
+  height: 25px;
+  font-size: 16px;
+  font-weight: 400;
+  padding-left: 10px;
+  padding-top: 10px;
+  outline: none;
+  border: transparent;
+  box-shadow: none !important;
+  color: #000000;
+}
+
+.tb-wrap .floating-label {
+  position: absolute;
+  height: 17px;
+  font-size: 16px;
+  font-weight: 400;
+  pointer-events: none;
+  top: 20px;
+  left: 10px;
+  transition: 0.2s ease all;
+  color: #848789;
+}
+
+.tb-wrap input:focus ~ .floating-label,
+.tb-wrap input:not([value=""]) ~ .floating-label {
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 1;
+  color: #848789;
+}
+
+/* When error and focused */
+.tb-error input:focus ~ .floating-label,
+.tb-error input:not([value=""]) ~ .floating-label {
+  color: #be1218;
+}
+/* 
+* =====================
+* +     DROPDOWN      +
+* =====================
+*/
+
+/*the container must be positioned relative:*/
+.custom-select {
+  position: relative;
+  font-family: Arial;
+  width: 200px;
+  left: 130px;
+}
+
+.custom-select select {
+  display: none; /*hide original SELECT element:*/
+}
+
+/*style the arrow inside the select element:*/
+.select-selected:after {
+  position: absolute;
+  content: "";
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: solid #4b0f1e;
+  border-width: 0 1.5px 1.5px 0;
+  display: inline-block;
+  padding: 4.8px;
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+/*point the arrow upwards when the select box is open (active):*/
+.select-selected.select-arrow-active:after {
+  border: solid #4b0f1e;
+  top: 14px;
+  border-width: 0 1.5px 1.5px 0;
+  display: inline-block;
+  padding: 4.8px;
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+/*style the items (options), including the selected item:*/
+.select-items div,
+.select-selected {
+  color: #848789;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-color: transparent transparent #f1f1eb transparent;
+  cursor: pointer;
+  user-select: none;
+  background-color: #ffffff;
+}
+
+/*style items (options):*/
+.select-items {
+  position: absolute;
+  background-color: #ffffff;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+
+/*hide the items when the select box is closed:*/
+.select-hide {
+  display: none;
+}
+
+.select-items div:hover {
+  /*background-color: rgba(0, 0, 0, 0.9);*/
+  color: #e00800;
+  font-weight: 600;
+}
+
+.same-as-selected:after {
+  position: absolute;
+  content: "";
+  padding-top: 5px;
+  margin-top: 2px;
+  /*Only way of importing svg that works*/
+  background-image: url("iconmonstr-check-mark-circle-thin.svg");
+  background-repeat: no-repeat;
+  background-size: 16px 16px;
+  width: 100%;
+  height: 16px;
+  left: 90%;
+}
+
+/* replacing bootstrap text emphasize */
+.text-emphasize {
+  color: #e00800 !important;
+}

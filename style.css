@@ -25,6 +25,8 @@
   position: fixed;
   /* force ignore body padding */
   left: 0px;
+  /* offset to match banner */
+  top: 157.8px;
   z-index: 1000;
   -webkit-transition-duration: 500ms;
   transition-duration: 500ms;
@@ -195,7 +197,7 @@
   font-size: 16px;
   font-weight: 400;
   padding-left: 10px;
-  padding-top: 10px;
+  margin-top: 10px;
   outline: none;
   border: transparent;
   box-shadow: none !important;
@@ -818,6 +820,338 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+/* 
+* =====================
+* +       NAVBAR      +      
+* =====================
+*/
+.navbar-brand .logo-element {
+  scale: 0.25 0.25;
+  fill: #4b0f1e;
+}
+
+#header-logo-container {
+  height: 40px;
+}
+
+.inc-push-meu-icon {
+  height: 53px;
+  background-color: #e00800;
+}
+
+#square-logo {
+  /* margin-left: 9px;
+  margin-right: 9px; */
+  margin: 13px 9px;
+}
+
+#square-logo a {
+  background-color: transparent;
+}
+
+#logo-svg-container {
+  height: 53px;
+}
+
+.push-enLogo {
+  transform: scale(0.9);
+}
+
+.top-nav div.navbar.navbar-expand {
+  background-color: #e6e6dc;
+}
+
+.top-nav .navlink,
+.top-nav a {
+  color: #4b0f1e;
+  height: 53px;
+  padding: 0px;
+}
+
+/* override bootstrap attr */
+.nav-link {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-expand .navbar-nav .nav-link {
+  padding-right: 45px;
+  padding-left: 45px;
+}
+
+.navbar > .container-fluid,
+.collapse .navbar-collapse {
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  left: 0;
+}
+
+.dropdown-menu > .container-fluid {
+  position: absolute;
+}
+
+.main-menu div.navbar.navbar-expand {
+  background-color: #fff;
+}
+
+.menu-wrapper {
+  background-color: #ffffff;
+  z-index: 1001;
+}
+
+/* only sets the main navbar (with big logo) padding */
+div .navbar-collapse {
+  padding-left: 20px;
+}
+
+.main-menu .navbar-nav-right .dropdown-toggle,
+.main-menu .navbar-nav-right .dropdown-toggle,
+.main-menu .navbar-nav-right .nav-item .nav-link,
+.main-menu .navbar-nav-right .nav-item .nav-link {
+  color: #4b0f1e;
+  text-align: center;
+  border-bottom: 3px solid transparent;
+}
+
+.main-menu .navbar-nav-right .dropdown-toggle:focus,
+.main-menu .navbar-nav-right .dropdown-toggle:hover {
+  background: #ffffff;
+  color: #e00800;
+  border-bottom: 3px solid #e00800;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+/* 
+* =====================
+* + NAVBAR(HOVERMENU) +      
+* =====================
+*/
+.main-menu .navbar-nav-right .nav-item .nav-link:focus,
+.main-menu .navbar-nav-right .nav-item .nav-link:hover {
+  color: #e00800;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.dropdown {
+  position: inherit;
+}
+
+.col-menu {
+  background-color: #ffffff;
+  padding-bottom: 10px;
+  display: flex;
+}
+
+.main-menu .navbar .dropdown:hover .dropdown-menu,
+.main-menu .navbar .dropdown .dropdown-menu:hover {
+  display: block !important;
+}
+
+.main-menu .navbar-nav-right .dropdown-menu {
+  background-color: #ffffff;
+  width: 100vw;
+  left: 0;
+  right: 0;
+}
+
+.nav-option-wrapper {
+  width: 100%;
+  height: 105px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.nav-option-wrapper a {
+  height: 105px;
+}
+
+.main-menu .navbar .dropdown-menu {
+  background-color: #fff;
+  /* override to disable */
+  padding: 0 0;
+  margin: 0 0;
+  font-size: 16px;
+  border: 0px solid transparent;
+}
+
+.dropdown-menu a {
+  height: 50px;
+}
+
+/* Change color of nav title */
+.main-menu .navbar-nav-right .dropdown-menu .nav-title .nav-link {
+  color: #4b0f1e;
+}
+
+.dropdown-nav-arrow {
+  width: 10px;
+  height: 14px;
+  margin-left: 2rem;
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  fill: #4b0f1e;
+}
+
+.dropdown-menu .active {
+  color: #4b0f1e;
+}
+
+.top-nav .nav-link {
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.top-nav .nav-link:focus,
+.top-nav .nav-link:hover {
+  background-color: #ffffff;
+  color: #4b0f1e;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.top-nav .navbar {
+  background-color: #f1f1eb;
+  font-family: "NeoTechAltMedium", Verdana, Geneva, sans-serif;
+  border: 0;
+  width: 100%;
+  height: 53px;
+  padding: 0 125px;
+  position: fixed;
+  top: 0;
+  z-index: 1001;
+  /* display: none; */
+}
+
+#top-nav-cart {
+  width: 24px;
+  height: 21px;
+  margin-left: 0.6rem;
+}
+
+.main-menu .navbar {
+  background-color: #fff;
+  text-transform: normal;
+  border: none;
+  width: 100%;
+  height: 105px;
+  box-shadow: 0 2px 4px 0 rgb(0 0 0 / 0%);
+  padding: 0 8rem;
+  position: fixed;
+  top: 3.3rem;
+  z-index: 1000;
+  -webkit-transition-duration: 500ms;
+  transition-duration: 500ms;
+}
+/* 
+* =====================
+* +       FOOTER      +      
+* =====================
+*/
+.footer-social li a:hover,
+.footer-social li a:focus,
+.footer-social li a:active {
+  background-color: #4b0f1e;
+}
+
+.footer-inline-links .list-inline-item a:hover,
+.footer-inline-links .list-inline-item a:focus,
+.footer-inline-links .list-inline-item a:active {
+  color: #4b0f1e;
+}
+
+#footerDIV .background-white.mt-5 {
+  background-color: #4b0f1e;
+  clear: both;
+  height: 178px;
+}
+
+#footerDIV .background-white.mt-5 > .container-fluid {
+  padding: 75px 0px;
+  height: 100%;
+}
+
+#footerDIV {
+  display: block;
+}
+
+#newFooterDIV {
+  background-color: #4b0f1e;
+  display: flex;
+  align-items: center;
+  margin: 0px 125px;
+}
+
+#svg-container {
+  height: 40px;
+  width: 100%;
+  margin: auto;
+}
+
+.logo-element {
+  scale: 0.25 0.25;
+  fill: white;
+}
+
+.footer-col {
+  display: inline;
+  text-align: center;
+}
+
+/* making the proportion of footer sections */
+#footerLinks-col {
+  width: 50%;
+}
+
+#footer-links-ul {
+  margin-top: 8px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#footerSocial-col,
+#footerLogo-col {
+  width: 25%;
+}
+
+.footer-col-ul li {
+  display: inline;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+/* THIS OVERRIDES THE ABOVE OR STYLE.css USING MORE NARROW SCOPE */
+.footer-link-item {
+  font-size: 16px;
+  color: white;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: 0em;
+}
+
+.footer-link-item:hover {
+  font-size: 16px;
+  color: white;
+  text-transform: none;
+  font-weight: normal;
+  letter-spacing: 0em;
+}
+
+.newFooterDIV #footerSocial-col ul li a svg {
+  height: 24px;
+  min-height: 24px;
+  width: 24px;
+}
+
+/*
+Please bare in mind thi is written in !important to demo how to MANUALLY edit each element
+DO NOT OVERUSE !IMPORTANT or split css files in this manner
+*/
 
 /* ONLY FOR DEMO, IGNORE ALL BELOW*/
 .ignoreThis {
@@ -835,22 +1169,27 @@ input:checked + .slider:before {
   position: relative;
   overflow: hidden;
   color: red;
+  margin-bottom: 10px;
 }
 
-.fakeBody:before {
+.topBarSpacer {
+  height: 277.6px;
+}
+
+/* .fakeBody:before {
   content: "";
-  position: absolute;
+  position: relative;
   width: 200%;
   height: 2500%;
   top: -250%;
-  left: -50%;
+  left: -80%;
   z-index: -1;
   background-color: black;
   background-image: linear-gradient(90deg, transparent 50%, yellow 50%);
   background-size: 120px 10000px;
   background-repeat: repeat;
   transform: rotate(45deg);
-}
+} */
 
 .theend {
   padding: 20px;
@@ -859,11 +1198,6 @@ input:checked + .slider:before {
 
 .theend span {
   cursor: crosshair;
-}
-
-body {
-  padding-left: 10px;
-  padding-bottom: 10px;
 }
 
 div + h2 {
@@ -875,3 +1209,7 @@ h3 {
   text-decoration: underline;
   padding: 10px 0px;
 }
+
+/* body {
+  background-color: turquoise;
+} */
