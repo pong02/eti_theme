@@ -22,3 +22,7 @@ Repository to keep resources useful for theme change project
 - https://icons.getbootstrap.com/icons/x-circle/
 - https://materialdesignicons.com/api/download/icon/svg/86AD97CA-6028-45C2-8C9A-8C4A562A8E49
 - https://materialdesignicons.com/api/download/icon/svg/F7C01A96-16E0-44C0-A261-2CF22D056A7F
+
+## Preview
+- [Alert](https://gistpreview.github.io/?fcc2e33f97216d0be11aa1dfd0a02faa)
+- Everything : `git clone https://github.com/pong02/eti_theme.git`
