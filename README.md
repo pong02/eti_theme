@@ -1,5 +1,10 @@
 # eti_theme
-Repository to keep resources useful for theme change project 
+The theme change project for Internship at Qinetics
+
+## Overview:
+- revamp is the custom elements applied on a fresh bootstrap project
+- elements is the elements as a standalone resource with/without bootstrap
+- the files in root is elements all combined into a single js
 
 ## Vanilla Elements
 - Persistent Banner (Alert Banner)
